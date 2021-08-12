@@ -7,10 +7,25 @@ You can easily access colors defined in DDS.
 
 ```swift
 // UIColor or NSColor
-DDSColor.primaryTextColor
-    .color
+DDSColor.primaryTextColor.color
     
 // SwiftUI.Color
-DDSColor.primaryTextColor
-    .swiftUIColor
+DDSColor.primaryTextColor.swiftUIColor
+```
+
+## Text 
+The follwing three font sizes are prepared in DDS, and I will add more sizes.
+- headline
+- subheadlin
+- body
+
+You can easily access labels in DDS.
+```swift
+// UILabel
+UILabel.dds.bod()
+
+// Text
+Text("text")
+    .dds
+    .body
 ```
