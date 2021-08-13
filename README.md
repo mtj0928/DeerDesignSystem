@@ -14,18 +14,14 @@ DDSColor.primaryTextColor.swiftUIColor
 ```
 
 ## Text 
-The follwing three font sizes are prepared in DDS, and I will add more sizes.
-- headline
-- subheadlin
-- body
-
 You can easily access labels in DDS.
 ```swift
 // UILabel
-UILabel.dds.bod()
+UILabel.dds
+    .create(for: .footnote, weight: .regular)
 
 // Text
 Text("text")
-    .dds
-    .body
+    .preferredFont(for: .footnote, weight: .regular)
+
 ```
