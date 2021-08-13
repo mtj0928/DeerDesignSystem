@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "Haptico",
-        "repositoryURL": "https://github.com/iSapozhnik/Haptico.git",
-        "state": {
-          "branch": null,
-          "revision": "971defee809be62d30b778322ff8d1aa3a8113c2",
-          "version": "1.1.1"
-        }
-      },
-      {
         "package": "SFSafeSymbols",
         "repositoryURL": "https://github.com/piknotech/SFSafeSymbols.git",
         "state": {

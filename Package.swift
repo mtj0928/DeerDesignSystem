@@ -17,7 +17,6 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/iSapozhnik/Haptico.git", from: "1.1.0"),
         .package(url: "https://github.com/piknotech/SFSafeSymbols.git", .upToNextMajor(from: "2.1.3"))
     ],
     targets: [
