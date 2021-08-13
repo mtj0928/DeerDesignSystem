@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "DDS",
+        "repositoryURL": "/Users/matsuji/Documents/programming/swift/library/DDS",
+        "state": {
+          "branch": "main",
+          "revision": "7ff098c572cdbc9eadbf425fad857c0dc3d7ba32",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
