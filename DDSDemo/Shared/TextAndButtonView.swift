@@ -11,12 +11,11 @@ struct TextAndButtonView: View {
                 HStack {
                     VStack(alignment: .leading, spacing: 12.0) {
                         Text("Primary Text Color: Deer / まつじ / 松本")
-                            .dds
-                            .body
+                            .preferredFont(for: .body)
+                            .foregroundColor(DDSColor.primaryText.swiftUIColor)
                         Text("Secondary Text Color: Deer / まつじ / 松本")
+                            .preferredFont(for: .body)
                             .foregroundColor(DDSColor.secondaryText.swiftUIColor)
-                            .dds
-                            .body
                         ZStack {
                             RoundedRectangle(cornerRadius: 10.0)
                                 .foregroundColor(DDSColor.secondaryBackground.swiftUIColor)
@@ -24,13 +23,11 @@ struct TextAndButtonView: View {
                             HStack {
                                 VStack(alignment: .leading, spacing: 12) {
                                     Text("Secondary Background (primary)")
-                                        .dds
-                                        .body
+                                        .preferredFont(for: .body)
+                                        .foregroundColor(DDSColor.primaryText.swiftUIColor)
                                     Text("Secondary Background (secondary)")
+                                        .preferredFont(for: .body)
                                         .foregroundColor(DDSColor.secondaryText.swiftUIColor)
-                                        .dds
-                                        .body
-
                                 }
                                 Spacer()
                             }
@@ -41,6 +38,13 @@ struct TextAndButtonView: View {
                     Spacer()
                 }
                 .padding(16.0)
+            }
+            .apply { view in
+                #if os(iOS)
+                view.navigationBarTitleDisplayMode(.inline)
+                #else
+                view
+                #endif
             }
         }
     }
