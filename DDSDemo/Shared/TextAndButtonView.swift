@@ -4,6 +4,7 @@ import DDS
 struct TextAndButtonView: View {
 
     @State var showTips = true
+    @State var showAlert = false
 
     var body: some View {
         ZStack {
@@ -19,6 +20,7 @@ struct TextAndButtonView: View {
                         Text("Secondary Text Color: Deer / まつじ / 松本")
                             .preferredFont(for: .body)
                             .foregroundColor(DDSColor.secondaryText.swiftUIColor)
+
                         ZStack {
                             RoundedRectangle(cornerRadius: 10.0)
                                 .foregroundColor(DDSColor.secondaryBackground.swiftUIColor)
@@ -36,10 +38,18 @@ struct TextAndButtonView: View {
                             }
                             .padding(14)
                         }
+
                         if showTips {
-                            Tips(title: "Title", body: "This is a body of the view.\nこれはViewの本文です") {
-                                showTips = false
-                            }
+                            Tips(
+                                title: "Title",
+                                body: "This is a body of the view.\nこれはViewの本文です",
+                                tappedAction: { showAlert = true },
+                                closeAction: {
+                                    withAnimation {
+                                        showTips = false
+                                    }
+                                }
+                            )
                             .foregroundColor(DDSColor.deerBlue.swiftUIColor)
                         }
                         Spacer()
@@ -47,6 +57,9 @@ struct TextAndButtonView: View {
                     Spacer()
                 }
                 .padding(16.0)
+            }
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Alert"))
             }
             .apply { view in
                 #if os(iOS)
