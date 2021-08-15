@@ -30,6 +30,7 @@ struct ColorPalletView: View {
                         }
                     }
                 }
+                .padding(.vertical)
             }
         }
         .apply { view in

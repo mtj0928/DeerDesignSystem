@@ -86,6 +86,7 @@ struct TextAndButtonView: View {
                     }
                     Spacer()
                 }
+                .padding(.vertical)
             }
             .alert(isPresented: $showAlert) {
                 Alert(title: Text("Alert"))
