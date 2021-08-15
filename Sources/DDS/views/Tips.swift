@@ -3,57 +3,82 @@ import SFSafeSymbols
 
 public struct Tips<Title: View, Label: View>: View {
 
+    @State var isPressing = false
+
     public let title: () -> Title
     public let label: () -> Label
-    public let closeAction: () -> Void
+    public let tappedAction: (() -> Void)?
+    public let closeAction: (() -> Void)?
 
     public init(
         @ViewBuilder title: @escaping () -> Title,
         @ViewBuilder label: @escaping () -> Label,
-        closeAction: @escaping () -> Void
+        tappedAction: (() -> Void)? = nil,
+        closeAction: (() -> Void)? = nil
     ) {
         self.title = title
         self.label = label
+        self.tappedAction = tappedAction
         self.closeAction = closeAction
     }
 
     public var body: some View {
         ZStack {
-            HStack(spacing: .zero) {
-                VStack(alignment: .leading, spacing: .zero) {
-                    title().padding(.bottom, 4)
-                    label()
-                        .lineLimit(2)
-                    Spacer()
-                }
-                Spacer(minLength: 0)
-            }
-            .padding(.top, 12)
-            .padding(.horizontal, 16)
-
-            HStack {
-                Spacer()
-                VStack {
-                    Button {
-                        closeAction()
-                    } label: {
-                        Image(systemSymbol: .xmarkCircleFill)
-                            .foregroundColor(.white)
+            Button(action: {
+                tappedAction?()
+            }) {
+                ZStack {
+                    HStack(spacing: .zero) {
+                        VStack(alignment: .leading, spacing: .zero) {
+                            title().padding(.bottom, 4)
+                            label()
+                                .lineLimit(2)
+                            Spacer()
+                        }
+                        Spacer(minLength: 0)
                     }
-                    Spacer()
+                    .padding(.vertical, 12)
+                    .padding(.horizontal, 16)
+                    .background(RoundedRectangle(cornerRadius: 12))
+
+                    if let closeAction = closeAction {
+                        HStack {
+                            Spacer()
+                            VStack {
+                                Image(systemSymbol: .xmarkCircleFill)
+                                    .foregroundColor(.white)
+                                    .opacity(isPressing ? 0.5 : 1.0)
+                                    .gesture(
+                                        DragGesture(minimumDistance: .zero)
+                                            .onChanged { value in
+                                                let distance = value.location.distance(with: value.startLocation)
+                                                isPressing = distance < 100
+                                            }
+                                            .onEnded { value in
+                                                isPressing = false
+                                                let distance = value.location.distance(with: value.startLocation)
+                                                if distance < 100 {
+                                                    closeAction()
+                                                }
+                                            }
+                                    )
+                                    .frame(width: 25)
+                                    .aspectRatio(1.0, contentMode: .fill)
+                                Spacer()
+                            }
+                        }
+                        .padding(8)
+                    }
                 }
             }
-            .padding(8)
+            .buttonStyle(PlainButtonStyle())
         }
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-        )
     }
 }
 
 extension Tips where Title == Text, Label == Text {
 
-    public init(title: String, body: String, closeAction: @escaping () -> Void) {
+    public init(title: String, body: String, tappedAction: (() -> Void)? = nil, closeAction: (() -> Void)? = nil) {
         self.init(
             title: {
                 Text(title)
@@ -65,6 +90,7 @@ extension Tips where Title == Text, Label == Text {
                     .preferredFont()
                     .foregroundColor(.white)
             },
+            tappedAction: tappedAction,
             closeAction: closeAction
         )
     }
@@ -74,15 +100,11 @@ struct Tips_Preview: PreviewProvider {
 
     static var previews: some View {
         Group {
-            VStack {
+            ScrollView {
                 Tips(
                     title: "Title",
                     body: "This is a body of the view.\nこれはViewの本文です"
-                ) {
-                    print("Closesd")
-                }
-                .frame(width: 347, height: 83)
-                .foregroundColor(DDSColor.deerBlue.swiftUIColor)
+                ).foregroundColor(DDSColor.deerBlue.swiftUIColor)
 
                 Tips(title: {
                     Text("Hoge")
@@ -97,46 +119,33 @@ struct Tips_Preview: PreviewProvider {
                             .foregroundColor(DDSColor.deerRed.swiftUIColor)
                         Spacer()
                     }
-                }, closeAction: {
-
-                })
-                .frame(width: 347, height: 83)
-                .foregroundColor(DDSColor.secondaryBackground.swiftUIColor)
+                }).foregroundColor(DDSColor.secondaryBackground.swiftUIColor)
 
                 Tips(
                     title: "Error",
                     body: "Failed to send a message"
-                ) {
-                }
-                .frame(width: 347, height: 83)
-                .foregroundColor(DDSColor.deerRed.swiftUIColor)
+                ).foregroundColor(DDSColor.deerRed.swiftUIColor)
             }
+            .padding()
+            .preferredColorScheme(.light)
 
-            VStack {
+            ScrollView {
                 Tips(
                     title: "Title",
                     body: "This is a body of the view.\nこれはViewの本文です"
-                ) {
-                }
-                .frame(width: 347, height: 83)
-                .foregroundColor(DDSColor.deerBlue.swiftUIColor)
+                ).foregroundColor(DDSColor.deerBlue.swiftUIColor)
 
                 Tips(
                     title: "Title",
                     body: "This is a body of the view.\nこれはViewの本文です"
-                ) {
-                }
-                .frame(width: 347, height: 83)
-                .foregroundColor(DDSColor.secondaryBackground.swiftUIColor)
+                ).foregroundColor(DDSColor.secondaryBackground.swiftUIColor)
 
                 Tips(
                     title: "Error",
                     body: "Failed to send a message"
-                ) {
-                }
-                .frame(width: 347, height: 83)
-                .foregroundColor(DDSColor.deerRed.swiftUIColor)
+                ).foregroundColor(DDSColor.deerRed.swiftUIColor)
             }
+            .padding()
             .preferredColorScheme(.dark)
         }
     }

@@ -2,6 +2,9 @@ import SwiftUI
 import DDS
 
 struct TextAndButtonView: View {
+
+    @State var showTips = true
+
     var body: some View {
         ZStack {
             Rectangle()
@@ -32,6 +35,12 @@ struct TextAndButtonView: View {
                                 Spacer()
                             }
                             .padding(14)
+                        }
+                        if showTips {
+                            Tips(title: "Title", body: "This is a body of the view.\nこれはViewの本文です") {
+                                showTips = false
+                            }
+                            .foregroundColor(DDSColor.deerBlue.swiftUIColor)
                         }
                         Spacer()
                     }

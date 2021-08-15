@@ -6,8 +6,17 @@
         "repositoryURL": "/Users/matsuji/Documents/programming/swift/library/DDS",
         "state": {
           "branch": "main",
-          "revision": "1fd336d5639c9f68f670e4fb320c60bf226ea889",
+          "revision": "43d92f4052e80dcb3a94db6e2cd24ad34f0a1153",
           "version": null
+        }
+      },
+      {
+        "package": "SFSafeSymbols",
+        "repositoryURL": "https://github.com/piknotech/SFSafeSymbols.git",
+        "state": {
+          "branch": null,
+          "revision": "c61de7a6e9eb1520d32316b06d5932accd974e70",
+          "version": "2.1.3"
         }
       }
     ]

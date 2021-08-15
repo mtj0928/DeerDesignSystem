@@ -51,8 +51,10 @@ Tips(title: {
                 .foregroundColor(DDSColor.deerRed.swiftUIColor)
             Spacer()
         }
+    }, tappedAction: {
+        print("tapped background")
     }, closeAction: {
-        print("Closesd")
+        print("tapped close button")
     })
     .foregroundColor(DDSColor.secondaryBackground.swiftUIColor)
 ```
