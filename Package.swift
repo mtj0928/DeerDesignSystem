@@ -22,7 +22,7 @@ let package = Package(
     targets: [
         .target(
             name: "DDS",
-            dependencies: []),
+            dependencies: ["SFSafeSymbols"]),
         .testTarget(
             name: "DDSTests",
             dependencies: ["DDS"]),
