@@ -46,6 +46,8 @@ public struct Tips<Title: View, Label: View>: View {
                             Spacer()
                             VStack {
                                 Image(systemSymbol: .xmarkCircleFill)
+                                    .resizable()
+                                    .scaledToFit()
                                     .foregroundColor(.white)
                                     .opacity(isPressing ? 0.5 : 1.0)
                                     .gesture(
@@ -103,7 +105,8 @@ struct Tips_Preview: PreviewProvider {
             ScrollView {
                 Tips(
                     title: "Title",
-                    body: "This is a body of the view.\nこれはViewの本文です"
+                    body: "This is a body of the view.\nこれはViewの本文です",
+                    closeAction: {}
                 ).foregroundColor(DDSColor.deerBlue.swiftUIColor)
 
                 Tips(title: {
