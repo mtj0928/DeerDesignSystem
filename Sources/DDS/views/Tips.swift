@@ -7,7 +7,7 @@ public struct Tips<Title: View, Label: View>: View {
     public let label: () -> Label
     public let closeAction: () -> Void
 
-    init(
+    public init(
         @ViewBuilder title: @escaping () -> Title,
         @ViewBuilder label: @escaping () -> Label,
         closeAction: @escaping () -> Void
