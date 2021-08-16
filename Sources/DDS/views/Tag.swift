@@ -28,7 +28,7 @@ public struct Tag<BackgrounShape: Shape>: View {
         }
         .apply { view in
             #if os(macOS) || os(watchOS)
-            view.buttonStyle(.plain)
+            view.buttonStyle(PlainButtonStyle())
             #else
             view
             #endif

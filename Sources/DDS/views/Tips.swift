@@ -42,32 +42,28 @@ public struct Tips<Title: View, Label: View>: View {
                     .background(RoundedRectangle(cornerRadius: 12))
 
                     if let closeAction = closeAction {
-                        HStack {
-                            Spacer()
-                            VStack {
-                                Image(systemSymbol: .xmarkCircleFill)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .foregroundColor(.white)
-                                    .opacity(isPressing ? 0.5 : 1.0)
-                                    .gesture(
-                                        DragGesture(minimumDistance: .zero)
-                                            .onChanged { value in
-                                                let distance = value.location.distance(with: value.startLocation)
-                                                isPressing = distance < 100
+                        Alignment(.top, .trailing) {
+                            Image(systemSymbol: .xmarkCircleFill)
+                                .resizable()
+                                .scaledToFit()
+                                .foregroundColor(.white)
+                                .opacity(isPressing ? 0.5 : 1.0)
+                                .gesture(
+                                    DragGesture(minimumDistance: .zero)
+                                        .onChanged { value in
+                                            let distance = value.location.distance(with: value.startLocation)
+                                            isPressing = distance < 100
+                                        }
+                                        .onEnded { value in
+                                            isPressing = false
+                                            let distance = value.location.distance(with: value.startLocation)
+                                            if distance < 100 {
+                                                closeAction()
                                             }
-                                            .onEnded { value in
-                                                isPressing = false
-                                                let distance = value.location.distance(with: value.startLocation)
-                                                if distance < 100 {
-                                                    closeAction()
-                                                }
-                                            }
-                                    )
-                                    .frame(width: 25)
-                                    .aspectRatio(1.0, contentMode: .fill)
-                                Spacer()
-                            }
+                                        }
+                                )
+                                .frame(width: 25)
+                                .aspectRatio(1.0, contentMode: .fill)
                         }
                         .padding(8)
                     }
