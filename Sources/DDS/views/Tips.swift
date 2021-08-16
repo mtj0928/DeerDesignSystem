@@ -23,24 +23,22 @@ public struct Tips<Title: View, Label: View>: View {
     }
 
     public var body: some View {
-        ZStack {
-            Button(action: {
-                tappedAction?()
-            }) {
-                ZStack {
-                    HStack(spacing: .zero) {
-                        VStack(alignment: .leading, spacing: .zero) {
-                            title().padding(.bottom, 4)
-                            label()
-                                .lineLimit(2)
-                            Spacer(minLength: 0)
-                        }
-                        Spacer(minLength: 0)
+        Button(action: {
+            tappedAction?()
+        }) {
+            ZStack {
+                HStack(spacing: .zero) {
+                    VStack(alignment: .leading, spacing: .zero) {
+                        title().padding(.bottom, 4)
+                        label()
+                            .lineLimit(2)
                     }
-                    .padding(.vertical, 12)
-                    .padding(.horizontal, 16)
-                    .background(RoundedRectangle(cornerRadius: 12))
-
+                    Spacer(minLength: 0)
+                }
+                .padding(.vertical, 12)
+                .padding(.horizontal, 16)
+                .background(RoundedRectangle(cornerRadius: 12))
+                .overlay(Group {
                     if let closeAction = closeAction {
                         Alignment(.top, .trailing) {
                             Image(systemSymbol: .xmarkCircleFill)
@@ -67,10 +65,10 @@ public struct Tips<Title: View, Label: View>: View {
                         }
                         .padding(8)
                     }
-                }
+                })
             }
-            .buttonStyle(PlainButtonStyle())
         }
+        .buttonStyle(PlainButtonStyle())
     }
 }
 
@@ -98,35 +96,40 @@ struct Tips_Preview: PreviewProvider {
 
     static var previews: some View {
         Group {
-            ScrollView {
-                Tips(
-                    title: "Title",
-                    body: "This is a body of the view.\nこれはViewの本文です",
-                    closeAction: {}
-                ).foregroundColor(DDSColor.deerBlue.swiftUIColor)
+            GeometryReader { proxy in
+                ScrollView {
+                    VStack {
+                        Tips(
+                            title: "Title",
+                            body: "This is a body of the view.\nこれはViewの本文です",
+                            closeAction: {}
+                        ).foregroundColor(DDSColor.deerBlue.swiftUIColor)
 
-                Tips(title: {
-                    Text("Hoge")
-                        .preferredFont(for: .body, weight: .heavy)
-                        .foregroundColor(DDSColor.primaryText.swiftUIColor)
-                }, label: {
-                    HStack {
-                        Circle().foregroundColor(DDSColor.deerGreen.swiftUIColor)
-                            .frame(width: 10, height: 10)
-                        Text("Custom")
-                            .preferredFont(for: .footnote, weight: .medium)
-                            .foregroundColor(DDSColor.deerRed.swiftUIColor)
+                        Tips(title: {
+                            Text("Hoge")
+                                .preferredFont(for: .body, weight: .heavy)
+                                .foregroundColor(DDSColor.primaryText.swiftUIColor)
+                        }, label: {
+                            HStack {
+                                Circle().foregroundColor(DDSColor.deerGreen.swiftUIColor)
+                                    .frame(width: 10, height: 10)
+                                Text("Custom")
+                                    .preferredFont(for: .footnote, weight: .medium)
+                                    .foregroundColor(DDSColor.deerRed.swiftUIColor)
+                                Spacer()
+                            }
+                        }).foregroundColor(DDSColor.secondaryBackground.swiftUIColor)
+                        Tips(
+                            title: "Error",
+                            body: "Failed to send a message"
+                        ).foregroundColor(DDSColor.deerRed.swiftUIColor)
                         Spacer()
                     }
-                }).foregroundColor(DDSColor.secondaryBackground.swiftUIColor)
-
-                Tips(
-                    title: "Error",
-                    body: "Failed to send a message"
-                ).foregroundColor(DDSColor.deerRed.swiftUIColor)
+                    .padding()
+                    .frame(width: proxy.size.width, height: proxy.size.height)
+                }
+                .preferredColorScheme(.light)
             }
-            .padding()
-            .preferredColorScheme(.light)
 
             ScrollView {
                 Tips(
