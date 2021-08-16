@@ -33,7 +33,7 @@ public struct Tips<Title: View, Label: View>: View {
                             title().padding(.bottom, 4)
                             label()
                                 .lineLimit(2)
-                            Spacer()
+                            Spacer(minLength: 0)
                         }
                         Spacer(minLength: 0)
                     }
@@ -62,7 +62,7 @@ public struct Tips<Title: View, Label: View>: View {
                                             }
                                         }
                                 )
-                                .frame(width: 25)
+                                .frame(width: 21)
                                 .aspectRatio(1.0, contentMode: .fill)
                         }
                         .padding(8)
