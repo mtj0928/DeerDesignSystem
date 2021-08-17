@@ -1,10 +1,3 @@
-//
-//  SwiftUIView.swift
-//  
-//
-//  Created by Junnosuke Matsumoto on 2021/08/17.
-//
-
 import SwiftUI
 
 public struct BottomFullFillButton<Label: View>: View {

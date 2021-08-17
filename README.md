@@ -18,7 +18,7 @@ You can easily access labels in DDS.
 ```swift
 // UILabel
 UILabel.dds
-    .create(for: .footnote, weight: .regular)
+    .preferredLabel(for: .footnote, weight: .regular)
 
 // Text
 Text("text")

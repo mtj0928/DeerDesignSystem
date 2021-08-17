@@ -4,7 +4,7 @@ import UIKit
 extension UILabel {
 
     public enum DDSLabel {
-        public static func create(for textStyle: UIFont.TextStyle = .footnote, weight: UIFont.Weight = .regular) -> UILabel {
+        public static func preferredLabel(for textStyle: UIFont.TextStyle = .footnote, weight: UIFont.Weight = .regular) -> UILabel {
             let label = UILabel()
             label.font = UIFont.preferredFont(for: textStyle, weight: weight)
             label.adjustsFontForContentSizeCategory = true
