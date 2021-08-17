@@ -21,6 +21,7 @@ public typealias AssetColorTypeAlias = ColorAsset.Color
 public enum DDSColor {
   public static let buttonBackgroundDisabled = ColorAsset(name: "button_background_disabled")
   public static let cellBackground = ColorAsset(name: "cell_background")
+  public static let cellBackgroundSelected = ColorAsset(name: "cell_background_selected")
   public static let deerBlue = ColorAsset(name: "deer_blue")
   public static let deerGreen = ColorAsset(name: "deer_green")
   public static let deerGreenDark = ColorAsset(name: "deer_green_dark")
