@@ -5,6 +5,7 @@ struct TextAndButtonView: View {
 
     @State var showTips = true
     @State var showAlert = false
+    @State var selectedAlertButton = false
 
     var body: some View {
         ZStack {
@@ -80,6 +81,10 @@ struct TextAndButtonView: View {
                             }
                             .padding(.horizontal)
                         }
+
+                        CheckButton(title: "Don't show this alert again.", isSelected: $selectedAlertButton)
+                            .padding()
+                            .accentColor(DDSColor.deerGreen.swiftUIColor)
 
                         Spacer()
 
