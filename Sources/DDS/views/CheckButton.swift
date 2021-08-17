@@ -37,17 +37,17 @@ extension CheckButton where Title == Text, Icon == Text {
         self.init(
             title: {
                 Text(title)
-                    .preferredFont(for: .footnote, weight: .regular)
+                    .preferredFont(for: .body, weight: .regular)
             },
             isSelected: isSelected,
             icon: { isSelected in
                 if isSelected {
                     return Text(Image(systemSymbol: .checkmarkCircleFill))
-                        .preferredFont(for: .callout, weight: .bold)
+                        .preferredFont(for: .body, weight: .bold)
                         .foregroundColor(.accentColor)
                 } else {
                     return Text(Image(systemSymbol: .checkmarkCircle))
-                        .preferredFont(for: .callout, weight: .bold)
+                        .preferredFont(for: .body, weight: .bold)
                 }
             }
         )

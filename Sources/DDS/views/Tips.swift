@@ -76,12 +76,12 @@ extension Tips where Title == Text, Label == Text {
         self.init(
             title: {
                 Text(title)
-                    .preferredFont(for: .body, weight: .semibold)
+                    .preferredFont(weight: .semibold)
                     .foregroundColor(.white)
             },
             label: {
                 Text(body)
-                    .preferredFont()
+                    .preferredFont(for: .callout)
                     .foregroundColor(.white)
             },
             tappedAction: tappedAction,
