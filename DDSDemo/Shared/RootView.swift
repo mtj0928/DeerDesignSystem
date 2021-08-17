@@ -32,6 +32,13 @@ struct RootView: View {
                 )
                     .navigationTitle("DDS Demo")
             }
+            .apply { view in
+                #if os(macOS)
+                view
+                #else
+                view.listStyle(InsetGroupedListStyle())
+                #endif
+            }
         }
     }
 }

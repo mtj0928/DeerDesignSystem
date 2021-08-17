@@ -11,8 +11,8 @@ struct TextAndButtonView: View {
             Rectangle()
                 .foregroundColor(DDSColor.primaryBackground.swiftUIColor)
                 .ignoresSafeArea()
-            ScrollView {
-                HStack {
+            GeometryReader { proxy in
+                ScrollView {
                     VStack(alignment: .leading, spacing: 12.0) {
                         Text("Primary Text Color: Deer / まつじ / 松本")
                             .preferredFont(for: .body)
@@ -24,23 +24,22 @@ struct TextAndButtonView: View {
                             .foregroundColor(DDSColor.secondaryText.swiftUIColor)
                             .padding(.horizontal)
 
-                        ZStack {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text("Secondary Background (primary)")
+                                    .preferredFont(for: .body)
+                                    .foregroundColor(DDSColor.primaryText.swiftUIColor)
+                                Text("Secondary Background (secondary)")
+                                    .preferredFont(for: .body)
+                                    .foregroundColor(DDSColor.secondaryText.swiftUIColor)
+                            }
+                            Spacer()
+                        }
+                        .padding(14)
+                        .background(
                             RoundedRectangle(cornerRadius: 10.0)
                                 .foregroundColor(DDSColor.secondaryBackground.swiftUIColor)
-                                .frame(height: 76)
-                            HStack {
-                                VStack(alignment: .leading, spacing: 12) {
-                                    Text("Secondary Background (primary)")
-                                        .preferredFont(for: .body)
-                                        .foregroundColor(DDSColor.primaryText.swiftUIColor)
-                                    Text("Secondary Background (secondary)")
-                                        .preferredFont(for: .body)
-                                        .foregroundColor(DDSColor.secondaryText.swiftUIColor)
-                                }
-                                Spacer()
-                            }
-                            .padding(14)
-                        }
+                        )
                         .padding(.horizontal)
 
                         if showTips {
@@ -67,14 +66,14 @@ struct TextAndButtonView: View {
                             HStack {
                                 Tag(title: Text("Tag"), action: { showAlert = true })
                                     .foregroundColor(DDSColor.deerBlue.swiftUIColor)
-                                Tag(title: Text("Tag"), action: { showAlert = true })
+                                Tag(title: Text("XXXXXXXXX"), action: { showAlert = true })
                                     .foregroundColor(DDSColor.deerRed.swiftUIColor)
                                 Tag(
                                     title: Text("Tag").foregroundColor(DDSColor.deerBlue.swiftUIColor),
                                     action: { showAlert = true }
                                 ).foregroundColor(DDSColor.deerBlue.swiftUIColor.opacity(0.15))
                                 Tag(
-                                    title: Text(Image(systemSymbol: .plus)),
+                                    title: Text(Image(systemSymbol: .plus)).foregroundColor(DDSColor.primaryText.swiftUIColor),
                                     shape: Circle(),
                                     action: { showAlert = true }
                                 ).foregroundColor(DDSColor.secondaryBackground.swiftUIColor)
@@ -83,20 +82,30 @@ struct TextAndButtonView: View {
                         }
 
                         Spacer()
+
+                        BottomFullFillButton(text: "Disabled Button") { showAlert = true }
+                        .foregroundColor(DDSColor.deerBlue.swiftUIColor)
+                        .padding(.horizontal)
+                        .disabled(true)
+
+                        BottomFullFillButton(text: "Button") { showAlert = true }
+                        .foregroundColor(DDSColor.deerBlue.swiftUIColor)
+                        .padding(.horizontal)
+                        .padding(.bottom, 8)
                     }
-                    Spacer()
+                    .padding(.top)
+                    .frame(minWidth: proxy.size.width, minHeight: proxy.size.height)
                 }
-                .padding(.vertical)
-            }
-            .alert(isPresented: $showAlert) {
-                Alert(title: Text("Alert"))
-            }
-            .apply { view in
-                #if os(iOS)
-                view.navigationBarTitleDisplayMode(.inline)
-                #else
-                view
-                #endif
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("Alert"))
+                }
+                .apply { view in
+                    #if os(iOS)
+                    view.navigationBarTitleDisplayMode(.inline)
+                    #else
+                    view
+                    #endif
+                }
             }
         }
     }
