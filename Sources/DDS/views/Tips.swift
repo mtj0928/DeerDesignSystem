@@ -35,9 +35,6 @@ public struct Tips<Title: View, Label: View>: View {
                     }
                     Spacer(minLength: 0)
                 }
-                .padding(.vertical, 12)
-                .padding(.horizontal, 16)
-                .background(RoundedRectangle(cornerRadius: 12))
                 .overlay(Group {
                     if let closeAction = closeAction {
                         Alignment(.top, .trailing) {
@@ -63,9 +60,10 @@ public struct Tips<Title: View, Label: View>: View {
                                 .frame(width: 21)
                                 .aspectRatio(1.0, contentMode: .fill)
                         }
-                        .padding(8)
                     }
                 })
+                .padding(12)
+                .background(RoundedRectangle(cornerRadius: 12))
             }
         }
         .buttonStyle(PlainButtonStyle())
