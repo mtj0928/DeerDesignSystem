@@ -3,8 +3,14 @@ import SFSafeSymbols
 
 @available(iOS 14.0, *)
 public struct SearchBar: View {
+
     let placeHolder: Text
     @Binding var input: String
+
+    public init(placeHolder: Text, input: Binding<String>) {
+        self.placeHolder = placeHolder
+        self._input = input
+    }
 
     public var body: some View {
         HStack {
