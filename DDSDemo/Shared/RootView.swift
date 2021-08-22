@@ -31,6 +31,12 @@ struct RootView: View {
                     label: { Cell(text: "Text and Button") }
                 )
                     .navigationTitle("DDS Demo")
+                if #available(iOS 14.0, *) {
+                    NavigationLink(
+                        destination: SampleListView(),
+                        label: { Cell(text: "List") }
+                    )
+                }
             }
             .apply { view in
                 #if os(macOS)
