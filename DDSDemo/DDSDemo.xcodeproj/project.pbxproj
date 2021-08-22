@@ -86,7 +86,6 @@
 				18483E0B26C5F0B7002E3E1F /* RootView.swift */,
 				1838D58426C6C4350083D645 /* ColorPalletView.swift */,
 				18980D7526C5740200FFE545 /* TextAndButtonView.swift */,
-				18F74CC126CC82970084DEF0 /* ListView */,
 				18980D7626C5740300FFE545 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -105,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				18980D7E26C5740300FFE545 /* Info.plist */,
+				18F74CC526CC8E5D0084DEF0 /* SampleListView.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -123,14 +123,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		18F74CC126CC82970084DEF0 /* ListView */ = {
-			isa = PBXGroup;
-			children = (
-				18F74CC526CC8E5D0084DEF0 /* SampleListView.swift */,
-			);
-			path = ListView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
