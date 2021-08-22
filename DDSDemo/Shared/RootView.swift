@@ -35,6 +35,10 @@ struct RootView: View {
                         destination: SampleListView(),
                         label: { Cell(text: "List") }
                     )
+                    NavigationLink(
+                        destination: SearchBarView(),
+                        label: { Cell(text: "SearchBar") }
+                    )
                 }
             }
             .navigationTitle("DDS Demo")

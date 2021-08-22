@@ -20,6 +20,7 @@
 		18980D8C26C5740300FFE545 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18980D7626C5740300FFE545 /* Assets.xcassets */; };
 		18980D9926C574FB00FFE545 /* DDSDemo.app in Resources */ = {isa = PBXBuildFile; fileRef = 18980D7B26C5740300FFE545 /* DDSDemo.app */; };
 		18980D9C26C5804200FFE545 /* TextAndButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18980D7526C5740200FFE545 /* TextAndButtonView.swift */; };
+		18E07E1E26D2994900EF85B3 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E07E1D26D2994900EF85B3 /* SearchBarView.swift */; };
 		18F74CC626CC8E5D0084DEF0 /* SampleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F74CC526CC8E5D0084DEF0 /* SampleListView.swift */; };
 		18F74CC726CC8E5D0084DEF0 /* SampleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F74CC526CC8E5D0084DEF0 /* SampleListView.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		18980D8326C5740300FFE545 /* DDSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18980D8526C5740300FFE545 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18980D8626C5740300FFE545 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		18E07E1D26D2994900EF85B3 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		18F74CC526CC8E5D0084DEF0 /* SampleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 			children = (
 				18980D7E26C5740300FFE545 /* Info.plist */,
 				18F74CC526CC8E5D0084DEF0 /* SampleListView.swift */,
+				18E07E1D26D2994900EF85B3 /* SearchBarView.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				18980D8926C5740300FFE545 /* TextAndButtonView.swift in Sources */,
 				18980D8726C5740300FFE545 /* DDSDemoApp.swift in Sources */,
 				1838D58326C6BE2A0083D645 /* RootView.swift in Sources */,
+				18E07E1E26D2994900EF85B3 /* SearchBarView.swift in Sources */,
 				18F74CC626CC8E5D0084DEF0 /* SampleListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
