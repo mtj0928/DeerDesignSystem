@@ -1,38 +1,33 @@
-import UIKit
+#if os(iOS)
 import SwiftUI
-import DDS
+import UIKit
 
-@available(iOS 14.0, *)
-protocol ListItem: Hashable {
+public protocol ListItem: Hashable {
     func tapped()
 }
 
-@available(iOS 14.0, *)
-protocol ListViewSection: Hashable {
+public protocol ListViewSection: Hashable {
     associatedtype Item: ListItem
     associatedtype ReusableView: ListViewReusableView
 
     var items: [Item] { get }
 }
 
-@available(iOS 14.0, *)
 extension ListViewSection {
-    var view: ReusableView? { nil }
+    public var view: ReusableView? { nil }
 }
 
-protocol ListViewReusableView: UICollectionReusableView {
+public protocol ListViewReusableView: UICollectionReusableView {
     associatedtype Section: ListViewSection
     func apply(section: Section)
 }
 
-@available(iOS 14.0, *)
-protocol ListViewCell: UICollectionViewCell {
+public protocol ListViewCell: UICollectionViewCell {
     associatedtype Item
     func apply(item: Item, at indexPath: IndexPath)
 }
 
-@available(iOS 14.0, *)
-class ListViewController<
+public class ListViewController<
     Section: ListViewSection,
     Cell: ListViewCell
 >: UIViewController where Cell.Item == Section.Item, Section.ReusableView.Section == Section {
@@ -54,7 +49,7 @@ class ListViewController<
 
     private var dataSrouce: DataSource?
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         setupCollectionView()
@@ -72,7 +67,6 @@ class ListViewController<
 
 // MARK: - View
 
-@available(iOS 14.0, *)
 extension ListViewController {
 
     private func setupCollectionView() {
@@ -125,3 +119,4 @@ extension ListViewController {
         view.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor).isActive = true
     }
 }
+#endif

@@ -1,12 +1,15 @@
+#if os(iOS)
+import UIKit
 import SwiftUI
 
-
+@available(iOS 14.0, *)
 public protocol HostableView: AnyObject {
     var hostingController: UIHostingController<AnyView> { get }
     var parentController: UIViewController? { get set }
     var contentView: UIView { get }
 }
 
+@available(iOS 14.0, *)
 extension HostableView {
 
     public func updateParentIfNeeded(in parentController: UIViewController) {
@@ -39,6 +42,7 @@ extension HostableView {
 
 }
 
+@available(iOS 14.0, *)
 public protocol HostingController: HostableView {
     associatedtype Label: View
     associatedtype Item
@@ -52,9 +56,11 @@ public protocol HostingController: HostableView {
     var contentView: UIView { get }
 }
 
+@available(iOS 14.0, *)
 extension HostingController {
     public func refresh() {
         hostingController.rootView = AnyView(body)
         updateLayout()
     }
 }
+#endif
