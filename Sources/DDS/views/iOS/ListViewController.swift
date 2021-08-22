@@ -55,7 +55,7 @@ public class ListViewController<
         setupCollectionView()
     }
 
-    func apply(sections: [Section], animatingDifferences: Bool = true, completion: (() -> Void)? = nil) {
+    func apply(sections: [Section], animatingDifferences: Bool = false, completion: (() -> Void)? = nil) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapshot.appendSections(sections)
         sections.forEach { section in
