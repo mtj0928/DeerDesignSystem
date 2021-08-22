@@ -32,15 +32,19 @@ struct SampleSection: ListViewSection {
         }
 
         var body: some View {
-            HStack {
-                (Text("\(number): ") + Text(item ?? ""))
-                    .foregroundColor(DDSColor.primaryText.swiftUIColor)
-                    .preferredFont(for: .title, weight: .heavy)
-                    .onTapGesture { [weak self] in
-                        self?.number += 1
+            Button(
+                action: {
+                    [weak self] in self?.number += 1
+                },
+                label: {
+                    HStack {
+                        (Text("\(number): ") + Text(item ?? ""))
+                            .foregroundColor(DDSColor.primaryText.swiftUIColor)
+                            .preferredFont(for: .title, weight: .heavy)
+                        Spacer()
                     }
-                Spacer()
-            }
+                }
+            )
             .padding(.horizontal)
             .padding(.vertical, 8)
         }
@@ -119,7 +123,7 @@ struct SampleListView: View {
     }
 
     var body: some View {
-        Group {
+        VStack(spacing: 0.0) {
             NavigationLink(destination: Text(selectedItem?.title ?? ""), tag: selectedItem?.title ?? "", selection: $selected) { EmptyView() }
             ListView<SampleSection, SampleCell>(sections: [
                 SampleSection(
@@ -131,9 +135,9 @@ struct SampleListView: View {
                 )
             ])
             .ignoresSafeArea()
-            .background(DDSColor.primaryBackground.swiftUIColor)
         }
         .navigationBarTitleDisplayMode(.inline)
         .accentColor(DDSColor.deerGreen.swiftUIColor)
+        .background(DDSColor.primaryBackground.swiftUIColor)
     }
 }

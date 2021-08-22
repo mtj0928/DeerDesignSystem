@@ -24,13 +24,12 @@ struct RootView: View {
             List {
                 NavigationLink(
                     destination: ColorPalletView(),
-                    label: { Cell(text: "Color Pallet")}
+                    label: { Cell(text: "Color Pallet") }
                 )
                 NavigationLink(
                     destination: TextAndButtonView(),
                     label: { Cell(text: "Text and Button") }
                 )
-                    .navigationTitle("DDS Demo")
                 if #available(iOS 14.0, *) {
                     NavigationLink(
                         destination: SampleListView(),
@@ -38,6 +37,7 @@ struct RootView: View {
                     )
                 }
             }
+            .navigationTitle("DDS Demo")
             .apply { view in
                 #if os(macOS)
                 view
@@ -45,6 +45,18 @@ struct RootView: View {
                 view.listStyle(InsetGroupedListStyle())
                 #endif
             }
+            ColorPalletView()
+        }
+        .apply { view in
+            #if os(iOS)
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                view
+            } else {
+                view.navigationViewStyle(StackNavigationViewStyle())
+            }
+            #else
+            view
+            #endif
         }
     }
 }

@@ -20,12 +20,6 @@
 		18980D8C26C5740300FFE545 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18980D7626C5740300FFE545 /* Assets.xcassets */; };
 		18980D9926C574FB00FFE545 /* DDSDemo.app in Resources */ = {isa = PBXBuildFile; fileRef = 18980D7B26C5740300FFE545 /* DDSDemo.app */; };
 		18980D9C26C5804200FFE545 /* TextAndButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18980D7526C5740200FFE545 /* TextAndButtonView.swift */; };
-		18E07E1B26D1FA5300EF85B3 /* Movable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E07E1A26D1FA5300EF85B3 /* Movable.swift */; };
-		18E07E1C26D1FA5300EF85B3 /* Movable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E07E1A26D1FA5300EF85B3 /* Movable.swift */; };
-		18F74CBF26CC823A0084DEF0 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F74CBE26CC823A0084DEF0 /* ListViewController.swift */; };
-		18F74CC026CC823A0084DEF0 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F74CBE26CC823A0084DEF0 /* ListViewController.swift */; };
-		18F74CC326CC8BD30084DEF0 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F74CC226CC8BD30084DEF0 /* ListView.swift */; };
-		18F74CC426CC8BD30084DEF0 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F74CC226CC8BD30084DEF0 /* ListView.swift */; };
 		18F74CC626CC8E5D0084DEF0 /* SampleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F74CC526CC8E5D0084DEF0 /* SampleListView.swift */; };
 		18F74CC726CC8E5D0084DEF0 /* SampleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F74CC526CC8E5D0084DEF0 /* SampleListView.swift */; };
 /* End PBXBuildFile section */
@@ -51,9 +45,6 @@
 		18980D8326C5740300FFE545 /* DDSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18980D8526C5740300FFE545 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18980D8626C5740300FFE545 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		18E07E1A26D1FA5300EF85B3 /* Movable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movable.swift; sourceTree = "<group>"; };
-		18F74CBE26CC823A0084DEF0 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		18F74CC226CC8BD30084DEF0 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		18F74CC526CC8E5D0084DEF0 /* SampleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,10 +128,7 @@
 		18F74CC126CC82970084DEF0 /* ListView */ = {
 			isa = PBXGroup;
 			children = (
-				18F74CBE26CC823A0084DEF0 /* ListViewController.swift */,
-				18F74CC226CC8BD30084DEF0 /* ListView.swift */,
 				18F74CC526CC8E5D0084DEF0 /* SampleListView.swift */,
-				18E07E1A26D1FA5300EF85B3 /* Movable.swift */,
 			);
 			path = ListView;
 			sourceTree = "<group>";
@@ -255,11 +243,8 @@
 			files = (
 				1838D58526C6C4350083D645 /* ColorPalletView.swift in Sources */,
 				18980D8926C5740300FFE545 /* TextAndButtonView.swift in Sources */,
-				18F74CC326CC8BD30084DEF0 /* ListView.swift in Sources */,
-				18F74CBF26CC823A0084DEF0 /* ListViewController.swift in Sources */,
 				18980D8726C5740300FFE545 /* DDSDemoApp.swift in Sources */,
 				1838D58326C6BE2A0083D645 /* RootView.swift in Sources */,
-				18E07E1B26D1FA5300EF85B3 /* Movable.swift in Sources */,
 				18F74CC626CC8E5D0084DEF0 /* SampleListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,11 +255,8 @@
 			files = (
 				1838D58626C6C4350083D645 /* ColorPalletView.swift in Sources */,
 				18980D9C26C5804200FFE545 /* TextAndButtonView.swift in Sources */,
-				18F74CC426CC8BD30084DEF0 /* ListView.swift in Sources */,
-				18F74CC026CC823A0084DEF0 /* ListViewController.swift in Sources */,
 				18980D8826C5740300FFE545 /* DDSDemoApp.swift in Sources */,
 				18483E0D26C5F0B7002E3E1F /* RootView.swift in Sources */,
-				18E07E1C26D1FA5300EF85B3 /* Movable.swift in Sources */,
 				18F74CC726CC8E5D0084DEF0 /* SampleListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
