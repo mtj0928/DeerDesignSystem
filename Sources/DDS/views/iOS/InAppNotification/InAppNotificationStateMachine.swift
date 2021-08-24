@@ -34,7 +34,10 @@ class InAppNotificationStateMachine: ObservableObject {
         case (.showing, .dragging):
             timer?.invalidate()
             self.currentState = .dragging
-        default: break
+        default:
+            // Error: reset
+            self.currentState = .hiding
+            self.offset = .zero
         }
     }
 }

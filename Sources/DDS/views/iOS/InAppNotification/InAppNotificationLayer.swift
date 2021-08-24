@@ -19,8 +19,8 @@ public struct InAppNotificationLayer: View {
                         Spacer().frame(height: proxy.safeAreaInsets.top + 8)
                         InAppNotification(request: request)
                             .onTapGesture {
-                                delegate?.notification(didTap: request)
                                 self.stateMachine.transition(to: .hiding)
+                                delegate?.notification(didTap: request)
                             }
                             .gesture(gesture)
                             .onAppear {
