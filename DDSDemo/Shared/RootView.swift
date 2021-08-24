@@ -3,6 +3,13 @@ import DDS
 
 struct RootView: View {
 
+    #if os(iOS)
+    let queue = InAppNotificationQueue()
+    @State var text: String?
+    @State var pushKind: String?
+    @State var isPresentingSheet = false
+    #endif
+
     private struct Cell: View {
         let text: String
 
@@ -21,24 +28,36 @@ struct RootView: View {
 
     var body: some View {
         NavigationView {
-            List {
+            ZStack {
                 NavigationLink(
-                    destination: ColorPalletView(),
-                    label: { Cell(text: "Color Pallet") }
+                    destination: Alignment {
+                        (Text("The body is ") + Text(text ?? ""))
+                            .foregroundColor(DDSColor.primaryText.swiftUIColor)
+                    }
+                    .background(DDSColor.primaryBackground.swiftUIColor),
+                    tag: "test",
+                    selection: $pushKind,
+                    label: { EmptyView() }
                 )
-                NavigationLink(
-                    destination: TextAndButtonView(),
-                    label: { Cell(text: "Text and Button") }
-                )
-                if #available(iOS 14.0, *) {
+                List {
                     NavigationLink(
-                        destination: SampleListView(),
-                        label: { Cell(text: "List") }
+                        destination: ColorPalletView(),
+                        label: { Cell(text: "Color Pallet") }
                     )
                     NavigationLink(
-                        destination: SearchBarView(),
-                        label: { Cell(text: "SearchBar") }
+                        destination: TextAndButtonView(),
+                        label: { Cell(text: "Text and Button") }
                     )
+                    if #available(iOS 14.0, *) {
+                        NavigationLink(
+                            destination: SampleListView(),
+                            label: { Cell(text: "List") }
+                        )
+                        NavigationLink(
+                            destination: SearchBarView(),
+                            label: { Cell(text: "SearchBar") }
+                        )
+                    }
                 }
             }
             .navigationTitle("DDS Demo")
@@ -53,15 +72,36 @@ struct RootView: View {
         }
         .apply { view in
             #if os(iOS)
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                view
-            } else {
-                view.navigationViewStyle(StackNavigationViewStyle())
+            ZStack {
+                Group {
+                    if UIDevice.current.userInterfaceIdiom == .pad {
+                        view
+                    } else {
+                        view.navigationViewStyle(StackNavigationViewStyle())
+                    }
+                }
+                .environment(\.inAppNotificationQueue, queue)
+                .sheet(isPresented: $isPresentingSheet) {
+                    Text("Hoge")
+                }
+
+                InAppNotificationLayer(queue: queue)
+                    .environment(\.inAppNotificationDelegate, self)
             }
             #else
             view
             #endif
         }
+    }
+}
+
+@available(iOS 14.0, *)
+extension RootView: InAppNotificationDelegte {
+
+    func notification(didTap request: InAppNotificationRequest) {
+        isPresentingSheet = true
+//        self.text = request.body ?? self.text
+//        self.pushKind = "test"
     }
 }
 
