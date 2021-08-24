@@ -6,10 +6,12 @@ public struct SearchBar: View {
 
     let placeHolder: Text
     @Binding var input: String
+    let commitHandler: () -> Void
 
-    public init(placeHolder: Text, input: Binding<String>) {
+    public init(placeHolder: Text, input: Binding<String>, onCommit commitHandler: @escaping () -> Void = {}) {
         self.placeHolder = placeHolder
         self._input = input
+        self.commitHandler = commitHandler
     }
 
     public var body: some View {
@@ -21,9 +23,8 @@ public struct SearchBar: View {
                 .padding(.vertical, 10)
             TextField("",
                 text: $input,
-                onEditingChanged: { editing in
-                }, onCommit: {
-                }
+                onEditingChanged: { _ in },
+                onCommit: commitHandler
             )
             .placeholder(when: input.isEmpty) {
                 placeHolder
