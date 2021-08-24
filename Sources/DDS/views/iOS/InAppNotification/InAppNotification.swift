@@ -55,7 +55,7 @@ struct InAppNotification_Preview: PreviewProvider {
                     .ignoresSafeArea()
                 VStack {
                     InAppNotification(
-                        request: AppNotificationRequest(
+                        request: StandardInAppNotificationRequest(
                             identifier: "XXX",
                             icon: Image(systemSymbol: .airpodspro),
                             title: "No AirPods Pro",
@@ -63,21 +63,21 @@ struct InAppNotification_Preview: PreviewProvider {
                         )
                     )
                     InAppNotification(
-                        request: AppNotificationRequest(
+                        request: StandardInAppNotificationRequest(
                             identifier: "XXX",
                             title: "You received a new comment.",
                             body: "Tom: Hello!"
                         )
                     )
                     InAppNotification(
-                        request: AppNotificationRequest(
+                        request: StandardInAppNotificationRequest(
                             identifier: "XXX",
                             title: nil,
                             body: "Only body text."
                         )
                     )
                     InAppNotification(
-                        request: AppNotificationRequest(
+                        request: StandardInAppNotificationRequest(
                             identifier: "XXX",
                             title: "Only title text",
                             body: nil
@@ -93,7 +93,7 @@ struct InAppNotification_Preview: PreviewProvider {
                     .ignoresSafeArea()
                 VStack {
                     InAppNotification(
-                        request: AppNotificationRequest(
+                        request: StandardInAppNotificationRequest(
                             identifier: "XXX",
                             icon: Image(systemSymbol: .airpodspro),
                             title: "No AirPods Pro",
@@ -101,21 +101,21 @@ struct InAppNotification_Preview: PreviewProvider {
                         )
                     )
                     InAppNotification(
-                        request: AppNotificationRequest(
+                        request: StandardInAppNotificationRequest(
                             identifier: "XXX",
                             title: "You received a new comment.",
                             body: "Tom: Hello!"
                         )
                     )
                     InAppNotification(
-                        request: AppNotificationRequest(
+                        request: StandardInAppNotificationRequest(
                             identifier: "XXX",
                             title: nil,
                             body: "Only body text."
                         )
                     )
                     InAppNotification(
-                        request: AppNotificationRequest(
+                        request: StandardInAppNotificationRequest(
                             identifier: "XXX",
                             title: "Only title text",
                             body: nil

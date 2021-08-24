@@ -79,7 +79,7 @@ struct InAppNotificationLayer_Preview: PreviewProvider {
                 ScrollView {
                     Alignment {
                         Button("show notification") {
-                            let request = AppNotificationRequest(
+                            let request = StandardInAppNotificationRequest(
                                 identifier: "xxx",
                                 icon: ZStack {
                                     Circle().foregroundColor(DDSColor.deerGreen.swiftUIColor)

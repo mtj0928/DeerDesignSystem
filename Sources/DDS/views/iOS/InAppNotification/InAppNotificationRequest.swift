@@ -7,7 +7,7 @@ public protocol InAppNotificationRequest {
     var body: String? { get }
 }
 
-struct AppNotificationRequest: InAppNotificationRequest {
+public struct StandardInAppNotificationRequest: InAppNotificationRequest {
     public let identifier: String
     public let icon: AnyView?
     public let title: String?
