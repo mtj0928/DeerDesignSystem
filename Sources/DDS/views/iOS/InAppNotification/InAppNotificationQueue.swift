@@ -1,3 +1,4 @@
+#if os(iOS)
 import SwiftUI
 
 public class InAppNotificationQueue: ObservableObject {
@@ -5,8 +6,6 @@ public class InAppNotificationQueue: ObservableObject {
     @Published var current: InAppNotificationRequest?
 
     private var queue: [InAppNotificationRequest] = []
-
-    public init() {}
 
     func next() {
         current = {
@@ -23,3 +22,4 @@ public class InAppNotificationQueue: ObservableObject {
         }
     }
 }
+#endif

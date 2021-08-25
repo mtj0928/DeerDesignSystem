@@ -25,7 +25,7 @@ class InAppNotificationStateMachine: ObservableObject {
             }
         case (.showing, .hiding),
              (.dragging, .hiding):
-            currentState =  .hiding
+            currentState = .hiding
             offset = .zero
             timer?.invalidate()
         case (.hiding, .standby):
@@ -34,6 +34,8 @@ class InAppNotificationStateMachine: ObservableObject {
         case (.showing, .dragging):
             timer?.invalidate()
             self.currentState = .dragging
+        case (.dragging, .dragging):
+            break
         default:
             // Error: reset
             self.currentState = .hiding

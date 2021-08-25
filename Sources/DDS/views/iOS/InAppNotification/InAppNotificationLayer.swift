@@ -1,16 +1,19 @@
+#if os(iOS)
 import SwiftUI
+import UIKit
 
-public struct InAppNotificationLayer: View {
+struct InAppNotificationLayer: View {
 
-    @Environment(\.inAppNotificationDelegate) var delegate
+    let delegate: InAppNotificationDelegte?
     @ObservedObject var queue: InAppNotificationQueue
     @ObservedObject var stateMachine = InAppNotificationStateMachine()
 
-    public init(queue: InAppNotificationQueue) {
+    init(queue: InAppNotificationQueue, delegate: InAppNotificationDelegte? = nil) {
         self.queue = queue
+        self.delegate = delegate
     }
 
-    public var body: some View {
+    var body: some View {
         GeometryReader { proxy in
             VStack {
                 if let request = queue.current,
@@ -40,7 +43,7 @@ public struct InAppNotificationLayer: View {
             }
             .frame(width: proxy.size.width)
         }
-        .padding(.horizontal)
+        .padding(.horizontal, 8)
     }
 
     private var gesture: some Gesture {
@@ -107,3 +110,4 @@ struct InAppNotificationLayer_Preview: PreviewProvider {
         .preferredColorScheme(.dark)
     }
 }
+#endif

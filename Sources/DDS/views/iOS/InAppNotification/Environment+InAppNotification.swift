@@ -14,16 +14,23 @@ extension EnvironmentValues {
     }
 }
 
+#if os(iOS)
+
 // MARK: - InAppNotificationQueue
 
 public struct InAppNotificationQueueKey: EnvironmentKey {
+
+    @available(iOS 14.0, *)
     public static let defaultValue = InAppNotificationQueue()
 }
 
 extension EnvironmentValues {
 
+    @available(iOS 14.0, *)
     public var inAppNotificationQueue: InAppNotificationQueue {
         get { self[InAppNotificationQueueKey.self] }
         set { self[InAppNotificationQueueKey.self] = newValue }
     }
 }
+
+#endif
