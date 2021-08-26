@@ -4,9 +4,24 @@ import DDS
 struct RootView: View {
 
     #if os(iOS)
-    let queue = InAppNotificationQueue()
+
+    static var windowScene: UIWindowScene? {
+        UIApplication.shared.connectedScenes
+            .sorted(by: { $0.activationState.rawValue > $1.activationState.rawValue })
+            .compactMap { $0 as? UIWindowScene }
+            .first
+    }
+
+    var inAppNotificationCenter: InAppNotificationCenter? {
+        let cetner = Self.windowScene
+            .flatMap(InAppNotificationCenter.resolve(for:))
+        if cetner?.delegate == nil {
+            cetner?.delegate = self
+        }
+        return cetner
+    }
+
     @State var text: String?
-    @State var pushKind: String?
     @State var isPresentingSheet = false
     #endif
 
@@ -29,16 +44,6 @@ struct RootView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                NavigationLink(
-                    destination: Alignment {
-                        (Text("The body is ") + Text(text ?? ""))
-                            .foregroundColor(DDSColor.primaryText.swiftUIColor)
-                    }
-                    .background(DDSColor.primaryBackground.swiftUIColor),
-                    tag: "test",
-                    selection: $pushKind,
-                    label: { EmptyView() }
-                )
                 List {
                     NavigationLink(
                         destination: ColorPalletView(),
@@ -80,13 +85,19 @@ struct RootView: View {
                         view.navigationViewStyle(StackNavigationViewStyle())
                     }
                 }
-                .environment(\.inAppNotificationQueue, queue)
-                .sheet(isPresented: $isPresentingSheet) {
-                    Text("Hoge")
+                .apply { view in
+                    if let notificationCenter = inAppNotificationCenter {
+                        view.environment(\.inAppNotificationQueue, notificationCenter.queue)
+                    } else {
+                        view
+                    }
                 }
-
-                InAppNotificationLayer(queue: queue)
-                    .environment(\.inAppNotificationDelegate, self)
+            }
+            .sheet(isPresented: $isPresentingSheet) {
+                Alignment {
+                    (Text(text ?? "") + Text("がタップされました"))
+                        .foregroundColor(DDSColor.primaryText.swiftUIColor)
+                }.background(DDSColor.primaryBackground.swiftUIColor)
             }
             #else
             view
@@ -99,9 +110,15 @@ struct RootView: View {
 extension RootView: InAppNotificationDelegte {
 
     func notification(didTap request: InAppNotificationRequest) {
-        isPresentingSheet = true
-//        self.text = request.body ?? self.text
-//        self.pushKind = "test"
+        let keyWindow = Self.windowScene?
+            .windows
+            .first(where: \.isKeyWindow)
+        keyWindow?
+            .rootViewController?
+            .dismiss(animated: true, completion: {
+                text = request.body
+                isPresentingSheet = true
+            })
     }
 }
 

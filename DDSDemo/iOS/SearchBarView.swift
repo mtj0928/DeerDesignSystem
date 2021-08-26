@@ -5,6 +5,8 @@ struct SearchBarView: View {
     @Environment(\.inAppNotificationQueue) var queue
     @State var text: String = ""
 
+    @State var isPrese = false
+
     var body: some View {
         GeometryReader { proxy in
             ZStack {
@@ -24,15 +26,29 @@ struct SearchBarView: View {
                                 identifier: UUID().uuidString,
                                 icon: ZStack {
                                     Circle().foregroundColor(DDSColor.deerGreen.swiftUIColor)
-                                    Image(systemSymbol: .bellBadgeFill)
+                                    Image(systemSymbol: .bellBadgeFill).foregroundColor(.white)
                                 },
                                 title: "Input text in search bar",
                                 body: text
                             ))
                         }
                         Spacer()
+                        BottomFullFillButton(text: "Show modal view") {
+                            isPrese = true
+                        }
+                        .padding(.horizontal)
+                        .padding(.bottom, 8)
+                        .foregroundColor(DDSColor.deerGreen.swiftUIColor)
                     }
                     .frame(minWidth: proxy.size.width, minHeight: proxy.size.height)
+                    .sheet(isPresented: $isPrese, content: {
+                        Alignment {
+                            Text("たとえModalであっても変わらず上に通知が表示されます")
+                                .foregroundColor(DDSColor.primaryText.swiftUIColor)
+                                .padding()
+                        }
+                        .background(DDSColor.primaryBackground.swiftUIColor)
+                    })
                 }
             }
         }
