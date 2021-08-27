@@ -75,7 +75,7 @@ view.environment(\.inAppNotificationQueue, notificationCenter.queue)
 ```
 
 And, you can show notification by adding notification request to the queue.
-```
+```swift
 struct YourView: View {
     @Environment(\.inAppNotificationQueue) var queue
     
