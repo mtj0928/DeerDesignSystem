@@ -116,6 +116,9 @@ extension RootView: InAppNotificationDelegte {
         keyWindow?
             .rootViewController?
             .dismiss(animated: true, completion: {
+                guard let request = request as? StandardInAppNotificationRequest else {
+                    return
+                }
                 text = request.body
                 isPresentingSheet = true
             })

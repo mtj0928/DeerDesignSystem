@@ -46,6 +46,9 @@ struct SearchBarView: View {
                             Text("たとえModalであっても変わらず上に通知が表示されます")
                                 .foregroundColor(DDSColor.primaryText.swiftUIColor)
                                 .padding()
+                                .onAppear {
+                                    queue.add(CustomNotificationRequest(identifier: "xxx"))
+                                }
                         }
                         .background(DDSColor.primaryBackground.swiftUIColor)
                     })
@@ -53,6 +56,28 @@ struct SearchBarView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+struct CustomNotificationRequest: View, InAppNotificationRequest {
+    let identifier: String
+    var view: AnyView { AnyView(self) }
+
+    @State var counter = 0
+
+    var body: some View {
+        HStack {
+            Text("\(counter)")
+            Spacer()
+            Button("Tap", action: { counter += 1 })
+                .padding(.vertical, 8)
+                .padding(.horizontal)
+                .background(DDSColor.deerGreen.swiftUIColor)
+                .cornerRadius(6)
+                .foregroundColor(.white)
+        }
+        .padding()
+        .background(DDSColor.notificationBackground.swiftUIColor)
     }
 }
 
