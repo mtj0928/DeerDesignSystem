@@ -93,3 +93,21 @@ struct YourView: View {
 ```
 
 <img width="320px" alt="Notification image" src="Resources/notification.png">
+
+### Custom InAppNotification
+You can custom view of InAppNotification.
+
+Prepare Cutom `InAppNotificationRequest` like this.
+```swift
+struct CustomNotificationRequest: View, InAppNotificationRequest {
+    let identifier: String
+    var view: AnyView { AnyView(self) }
+
+    var body: some View { ... }
+}
+```
+
+And, add the request to queue.
+```swift
+queue.add(CustomNotificationRequest(identifier: UUID().uuidString))
+```
