@@ -11,13 +11,8 @@ public struct InAppNotification: View {
     public var body: some View {
         HStack(alignment: .top, spacing: 0) {
             if let icon = request.icon {
-                ZStack {
-                    DDSColor.secondaryBackground.swiftUIColor
-                    icon.scaledToFit()
-                }
-                .clipShape(Circle())
-                .frame(width: 53, height: 53)
-                .padding(.trailing, 8)
+                icon.frame(width: 53, height: 53)
+                    .padding(.trailing, 8)
             } else {
                 Spacer().frame(width: 8)
             }
@@ -57,7 +52,10 @@ struct InAppNotification_Preview: PreviewProvider {
                     InAppNotification(
                         request: StandardInAppNotificationRequest(
                             identifier: "XXX",
-                            icon: Image(systemSymbol: .airpodspro),
+                            icon: ZStack {
+                                Circle().foregroundColor(.red)
+                                Image(systemSymbol: .airpodspro).foregroundColor(.white)
+                            },
                             title: "No AirPods Pro",
                             body: "Connection of AirPodsPro was lost"
                         )
