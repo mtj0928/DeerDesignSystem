@@ -1,10 +1,37 @@
 import SwiftUI
 
-@available(iOS 14.0, *)
-public struct InAppNotification: View {
-    let request: InAppNotificationRequest
+public struct StandardInAppNotificationRequest: InAppNotificationRequest {
 
-    public init(request: InAppNotificationRequest) {
+    public let identifier: String
+    public var view: AnyView {
+        AnyView(StandardInAppNotification(request: self))
+    }
+
+    public let icon: AnyView?
+    public let title: String?
+    public let body: String?
+
+
+    public init<Icon: View>(identifier: String, icon: Icon, title: String?, body: String?) {
+        self.identifier = identifier
+        self.icon = AnyView(icon)
+        self.title = title
+        self.body = body
+    }
+
+    public init(identifier: String, title: String?, body: String?) {
+        self.identifier = identifier
+        self.icon = nil
+        self.title = title
+        self.body = body
+    }
+}
+
+@available(iOS 14.0, *)
+struct StandardInAppNotification: View {
+    let request: StandardInAppNotificationRequest
+
+    public init(request: StandardInAppNotificationRequest) {
         self.request = request
     }
 
@@ -36,8 +63,6 @@ public struct InAppNotification: View {
         }
         .padding(13)
         .background(DDSColor.notificationBackground.swiftUIColor)
-        .clipShape(RoundedRectangle(cornerRadius: 24))
-        .shadow(radius: 6)
     }
 }
 
@@ -49,7 +74,7 @@ struct InAppNotification_Preview: PreviewProvider {
                 DDSColor.primaryBackground.swiftUIColor
                     .ignoresSafeArea()
                 VStack {
-                    InAppNotification(
+                    StandardInAppNotification(
                         request: StandardInAppNotificationRequest(
                             identifier: "XXX",
                             icon: ZStack {
@@ -60,21 +85,21 @@ struct InAppNotification_Preview: PreviewProvider {
                             body: "Connection of AirPodsPro was lost"
                         )
                     )
-                    InAppNotification(
+                    StandardInAppNotification(
                         request: StandardInAppNotificationRequest(
                             identifier: "XXX",
                             title: "You received a new comment.",
                             body: "Tom: Hello!"
                         )
                     )
-                    InAppNotification(
+                    StandardInAppNotification(
                         request: StandardInAppNotificationRequest(
                             identifier: "XXX",
                             title: nil,
                             body: "Only body text."
                         )
                     )
-                    InAppNotification(
+                    StandardInAppNotification(
                         request: StandardInAppNotificationRequest(
                             identifier: "XXX",
                             title: "Only title text",
@@ -90,7 +115,7 @@ struct InAppNotification_Preview: PreviewProvider {
                 DDSColor.primaryBackground.swiftUIColor
                     .ignoresSafeArea()
                 VStack {
-                    InAppNotification(
+                    StandardInAppNotification(
                         request: StandardInAppNotificationRequest(
                             identifier: "XXX",
                             icon: Image(systemSymbol: .airpodspro),
@@ -98,21 +123,21 @@ struct InAppNotification_Preview: PreviewProvider {
                             body: "Connection of AirPodsPro was lost"
                         )
                     )
-                    InAppNotification(
+                    StandardInAppNotification(
                         request: StandardInAppNotificationRequest(
                             identifier: "XXX",
                             title: "You received a new comment.",
                             body: "Tom: Hello!"
                         )
                     )
-                    InAppNotification(
+                    StandardInAppNotification(
                         request: StandardInAppNotificationRequest(
                             identifier: "XXX",
                             title: nil,
                             body: "Only body text."
                         )
                     )
-                    InAppNotification(
+                    StandardInAppNotification(
                         request: StandardInAppNotificationRequest(
                             identifier: "XXX",
                             title: "Only title text",

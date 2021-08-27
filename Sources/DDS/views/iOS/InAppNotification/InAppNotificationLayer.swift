@@ -20,7 +20,9 @@ struct InAppNotificationLayer: View {
                    stateMachine.currentCanShowNotification {
                     VStack {
                         Spacer().frame(height: proxy.safeAreaInsets.top + 8)
-                        InAppNotification(request: request)
+                        request.view
+                            .clipShape(RoundedRectangle(cornerRadius: 24))
+                            .shadow(radius: 6)
                             .onTapGesture {
                                 self.stateMachine.transition(to: .hiding)
                                 delegate?.notification(didTap: request)
