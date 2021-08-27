@@ -31,11 +31,11 @@ public struct StandardInAppNotificationRequest: InAppNotificationRequest {
 struct StandardInAppNotification: View {
     let request: StandardInAppNotificationRequest
 
-    public init(request: StandardInAppNotificationRequest) {
+    init(request: StandardInAppNotificationRequest) {
         self.request = request
     }
 
-    public var body: some View {
+    var body: some View {
         HStack(alignment: .top, spacing: 0) {
             if let icon = request.icon {
                 icon.frame(width: 53, height: 53)
