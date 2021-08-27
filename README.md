@@ -30,6 +30,8 @@ Text("text")
 Tips is a view which has title, body and close button.
 You can use the view for showing tips about your app.
 
+<img width="320px" alt="Tips image" src="Resources/tips.png">
+
 ```swift
 // Basic
 Tips(title: "Title",body: "This is a body of the view.") {
@@ -59,10 +61,11 @@ Tips(title: {
     .foregroundColor(DDSColor.secondaryBackground.swiftUIColor)
 ```
 
-<img width="320px" alt="Tips image" src="Resources/tips.png">
 
 ## InAppNotification
 You can show notifications in your application.
+
+<img width="320px" alt="Notification image" src="Resources/notification.png">
 
 Preapre instance of `InAppNotificationCenter`.
 ```swift
