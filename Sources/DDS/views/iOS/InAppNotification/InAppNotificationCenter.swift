@@ -41,7 +41,7 @@ public class InAppNotificationCenter {
                 } else {
                     self?.window.makeKey()
                 }
-        }
+            }
     }
 
     private func reload() {

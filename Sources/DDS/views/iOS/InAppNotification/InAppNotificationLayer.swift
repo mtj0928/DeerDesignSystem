@@ -27,9 +27,9 @@ struct InAppNotificationLayer: View {
                                 self.stateMachine.transition(to: .hiding)
                                 delegate?.notification(didTap: request)
                             }
-                            .gesture(gesture)
+                            .gesture(gesture(with: request))
                             .onAppear {
-                                stateMachine.transition(to: .showing)
+                                stateMachine.transition(to: .showing(duration: request.duration))
                             }
                             .onDisappear {
                                 stateMachine.transition(to: .standby)
@@ -48,7 +48,7 @@ struct InAppNotificationLayer: View {
         .padding(.horizontal, 8)
     }
 
-    private var gesture: some Gesture {
+    private func gesture(with request: InAppNotificationRequest) -> some Gesture {
         DragGesture(minimumDistance: .zero)
             .onChanged({ value in
                 self.stateMachine.offset = self.calculateOffSet(for: value)
@@ -59,7 +59,7 @@ struct InAppNotificationLayer: View {
                 if diff <= -20 {
                     self.stateMachine.transition(to: .hiding)
                 } else {
-                    self.stateMachine.transition(to: .showing)
+                    self.stateMachine.transition(to: .showing(duration: request.duration))
                 }
             })
     }

@@ -2,25 +2,27 @@ import SwiftUI
 
 class InAppNotificationStateMachine: ObservableObject {
 
-    enum InAppNotificationState {
-        case standby, showing, dragging, hiding
+    enum InAppNotificationState: Equatable {
+        case standby, showing(duration: TimeInterval?), dragging, hiding
     }
 
     @Published private(set) var currentState: InAppNotificationState = .standby
     @Published var offset: CGFloat = .zero
 
     var currentCanShowNotification: Bool { currentState != .hiding }
-    var timer: Timer?
+    private var timer: Timer?
 
     func transition(to nextState: InAppNotificationState) {
         switch (currentState, nextState) {
-        case (.standby, .showing),
-             (.dragging, .showing):
+        case (.standby, .showing(let duration)),
+             (.dragging, .showing(let duration)):
             offset = .zero
-            currentState = .showing
-            timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] _ in
-                DispatchQueue.main.async {
-                    self?.transition(to: .hiding)
+            currentState = nextState
+            if let duration = duration {
+                timer = Timer.scheduledTimer(withTimeInterval: duration, repeats: false) { [weak self] _ in
+                    DispatchQueue.main.async {
+                        self?.transition(to: .hiding)
+                    }
                 }
             }
         case (.showing, .hiding),
