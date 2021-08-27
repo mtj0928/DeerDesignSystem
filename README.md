@@ -60,3 +60,34 @@ Tips(title: {
 ```
 
 <img width="320px" alt="Tips image" src="Resources/tips.png">
+
+## InAppNotification
+You can show notifications in your application.
+
+Preapre instance of `InAppNotificationCenter`.
+```swift
+let notificationCenter = InAppNotificationCenter.resolve(for: windowScene)
+````
+
+If you use SwiftUI, embed notification queue to your view.
+```swift
+view.environment(\.inAppNotificationQueue, notificationCenter.queue)
+```
+
+And, you can show notification by adding notification request to the queue.
+```
+struct YourView: View {
+    @Environment(\.inAppNotificationQueue) var queue
+    
+    var body: some View { ... }
+    
+    func showNotification() { 
+        queue.add(StandardInAppNotificationRequest(
+            identifier: UUID().uuidString,
+            icon: image,
+            title: title,
+            body: body
+        ))
+    }
+}
+```
