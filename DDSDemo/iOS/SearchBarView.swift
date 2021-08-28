@@ -62,7 +62,7 @@ struct SearchBarView: View {
 struct CustomNotificationRequest: View, InAppNotificationRequest {
     let identifier: String
     var view: AnyView { AnyView(self) }
-    var duration: TimeInterval? = nil
+    let duration: TimeInterval? = nil
 
     @State var counter = 0
 
