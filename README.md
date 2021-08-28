@@ -102,6 +102,7 @@ Prepare Cutom `InAppNotificationRequest` like this.
 struct CustomNotificationRequest: View, InAppNotificationRequest {
     let identifier: String
     var view: AnyView { AnyView(self) }
+    var duration: TimeInterval? = 3.0
 
     var body: some View { ... }
 }
