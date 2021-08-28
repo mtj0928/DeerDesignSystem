@@ -36,7 +36,7 @@ struct StandardInAppNotification: View {
     }
 
     var body: some View {
-        HStack(alignment: .top, spacing: 0) {
+        HStack(alignment: .center, spacing: 0) {
             if let icon = request.icon {
                 icon.frame(width: 53, height: 53)
                     .padding(.trailing, 8)
@@ -82,9 +82,24 @@ struct InAppNotification_Preview: PreviewProvider {
                                 Image(systemSymbol: .airpodspro).foregroundColor(.white)
                             },
                             title: "No AirPods Pro",
-                            body: "Connection of AirPodsPro was lost"
+                            body: "Connection of AirPodsPro was lost."
                         )
                     )
+                    .clipShape(RoundedRectangle(cornerRadius: 24))
+                    .shadow(radius: 6)
+                    StandardInAppNotification(
+                        request: StandardInAppNotificationRequest(
+                            identifier: "XXX",
+                            icon: ZStack {
+                                Circle().foregroundColor(.red)
+                                Image(systemSymbol: .airpodspro).foregroundColor(.white)
+                            },
+                            title: "No AirPods Pro",
+                            body: "Connection of AirPodsPro was lost.Connection of AirPodsPro was lost."
+                        )
+                    )
+                    .clipShape(RoundedRectangle(cornerRadius: 24))
+                    .shadow(radius: 6)
                     StandardInAppNotification(
                         request: StandardInAppNotificationRequest(
                             identifier: "XXX",
@@ -92,6 +107,8 @@ struct InAppNotification_Preview: PreviewProvider {
                             body: "Tom: Hello!"
                         )
                     )
+                    .clipShape(RoundedRectangle(cornerRadius: 24))
+                    .shadow(radius: 6)
                     StandardInAppNotification(
                         request: StandardInAppNotificationRequest(
                             identifier: "XXX",
@@ -99,6 +116,8 @@ struct InAppNotification_Preview: PreviewProvider {
                             body: "Only body text."
                         )
                     )
+                    .clipShape(RoundedRectangle(cornerRadius: 24))
+                    .shadow(radius: 6)
                     StandardInAppNotification(
                         request: StandardInAppNotificationRequest(
                             identifier: "XXX",
@@ -106,6 +125,8 @@ struct InAppNotification_Preview: PreviewProvider {
                             body: nil
                         )
                     )
+                    .clipShape(RoundedRectangle(cornerRadius: 24))
+                    .shadow(radius: 6)
                     Spacer()
                 }
                 .padding()
@@ -120,9 +141,11 @@ struct InAppNotification_Preview: PreviewProvider {
                             identifier: "XXX",
                             icon: Image(systemSymbol: .airpodspro),
                             title: "No AirPods Pro",
-                            body: "Connection of AirPodsPro was lost"
+                            body: "Connection of AirPodsPro was lost."
                         )
                     )
+                    .clipShape(RoundedRectangle(cornerRadius: 24))
+                    .shadow(radius: 6)
                     StandardInAppNotification(
                         request: StandardInAppNotificationRequest(
                             identifier: "XXX",
@@ -130,6 +153,8 @@ struct InAppNotification_Preview: PreviewProvider {
                             body: "Tom: Hello!"
                         )
                     )
+                    .clipShape(RoundedRectangle(cornerRadius: 24))
+                    .shadow(radius: 6)
                     StandardInAppNotification(
                         request: StandardInAppNotificationRequest(
                             identifier: "XXX",
@@ -137,6 +162,8 @@ struct InAppNotification_Preview: PreviewProvider {
                             body: "Only body text."
                         )
                     )
+                    .clipShape(RoundedRectangle(cornerRadius: 24))
+                    .shadow(radius: 6)
                     StandardInAppNotification(
                         request: StandardInAppNotificationRequest(
                             identifier: "XXX",
@@ -144,6 +171,8 @@ struct InAppNotification_Preview: PreviewProvider {
                             body: nil
                         )
                     )
+                    .clipShape(RoundedRectangle(cornerRadius: 24))
+                    .shadow(radius: 6)
                     Spacer()
                 }
                 .padding()
