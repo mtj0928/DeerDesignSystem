@@ -44,7 +44,7 @@ struct StandardInAppNotification: View {
                 Spacer().frame(width: 8)
             }
 
-            VStack(alignment: .leading, spacing: 2) {
+            VStack(alignment: .leading, spacing: 4) {
                 if let title = request.title {
                     Text(title)
                         .preferredFont(for: .callout, weight: .bold)
