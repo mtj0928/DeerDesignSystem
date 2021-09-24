@@ -40,7 +40,7 @@ public class ListViewController<
     let collectionView: UICollectionView = {
         var configuration = UICollectionLayoutListConfiguration(appearance: .grouped)
         configuration.headerMode = .supplementary
-        configuration.backgroundColor = DDSColor.primaryBackground.color
+        configuration.backgroundColor = UIColor(Color.dds.primaryBackground)
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -76,10 +76,10 @@ extension ListViewController {
             guard let self = self else { return }
 
             cell.selectedBackgroundView = cell.selectedBackgroundView ?? UIView()
-            cell.selectedBackgroundView?.backgroundColor = DDSColor.cellBackgroundSelected.color
+            cell.selectedBackgroundView?.backgroundColor = UIColor(Color.dds.cellBackgroundSelected)
 
             cell.backgroundView = UIView()
-            cell.backgroundView?.backgroundColor = DDSColor.cellBackground.color
+            cell.backgroundView?.backgroundColor = UIColor(Color.dds.cellBackground)
 
             if let hoastableView = cell as? HostableView {
                 hoastableView.updateParentIfNeeded(in: self)

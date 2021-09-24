@@ -4,15 +4,15 @@ import DDS
 struct ColorPalletView: View {
 
     let colors = [
-        DDSColor.deerBlue,
-        DDSColor.deerGreen,
-        DDSColor.deerRed
-    ].map(\.swiftUIColor)
+        Color.dds.deerBlue,
+        Color.dds.deerGreen,
+        Color.dds.deerRed
+    ].map(\)
 
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(DDSColor.primaryBackground.swiftUIColor)
+                .foregroundColor(Color.dds.primaryBackground)
                 .ignoresSafeArea()
             ScrollView {
                 LazyVGrid(columns: [

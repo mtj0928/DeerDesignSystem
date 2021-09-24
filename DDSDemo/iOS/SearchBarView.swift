@@ -10,7 +10,7 @@ struct SearchBarView: View {
     var body: some View {
         GeometryReader { proxy in
             ZStack {
-                DDSColor.primaryBackground.swiftUIColor.ignoresSafeArea()
+                Color.dds.primaryBackground.ignoresSafeArea()
                 ScrollView {
                     VStack {
                         SearchBar(
@@ -25,7 +25,7 @@ struct SearchBarView: View {
                             queue.add(StandardInAppNotificationRequest(
                                 identifier: UUID().uuidString,
                                 icon: ZStack {
-                                    Circle().foregroundColor(DDSColor.deerGreen.swiftUIColor)
+                                    Circle().foregroundColor(Color.dds.deerGreen)
                                     Image(systemSymbol: .bellBadgeFill).foregroundColor(.white)
                                 },
                                 title: "Input text in search bar",
@@ -38,19 +38,19 @@ struct SearchBarView: View {
                         }
                         .padding(.horizontal)
                         .padding(.bottom, 8)
-                        .foregroundColor(DDSColor.deerGreen.swiftUIColor)
+                        .foregroundColor(Color.dds.deerGreen)
                     }
                     .frame(minWidth: proxy.size.width, minHeight: proxy.size.height)
                     .sheet(isPresented: $isPrese, content: {
                         Alignment {
                             Text("たとえModalであっても変わらず上に通知が表示されます")
-                                .foregroundColor(DDSColor.primaryText.swiftUIColor)
+                                .foregroundColor(Color.dds.primaryText)
                                 .padding()
                                 .onAppear {
                                     queue.add(CustomNotificationRequest(identifier: "xxx"))
                                 }
                         }
-                        .background(DDSColor.primaryBackground.swiftUIColor)
+                        .background(Color.dds.primaryBackground)
                     })
                 }
             }
@@ -73,12 +73,12 @@ struct CustomNotificationRequest: View, InAppNotificationRequest {
             Button("Tap", action: { counter += 1 })
                 .padding(.vertical, 8)
                 .padding(.horizontal)
-                .background(DDSColor.deerGreen.swiftUIColor)
+                .background(Color.dds.deerGreen)
                 .cornerRadius(6)
                 .foregroundColor(.white)
         }
         .padding()
-        .background(DDSColor.notificationBackground.swiftUIColor)
+        .background(Color.dds.notificationBackground)
     }
 }
 

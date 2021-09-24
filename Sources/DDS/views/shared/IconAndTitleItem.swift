@@ -50,7 +50,7 @@ extension IconAndTitleItem where Title == Text {
             title: {
                 Text(title)
                     .preferredFont(for: .body, weight: .bold)
-                    .foregroundColor(DDSColor.primaryText.swiftUIColor)
+                    .foregroundColor(Color.dds.primaryText)
             }
         )
     }
@@ -62,7 +62,7 @@ struct IconAndTitleItem_Previews: PreviewProvider {
             NavigationView {
                 List {
                     Section(header: Text("Section Header")
-                                .foregroundColor(DDSColor.primaryText.swiftUIColor)
+                                .foregroundColor(Color.dds.primaryText)
                                 .preferredFont(for: .title, weight: .heavy)
                                 .padding(.bottom, 4.0)
                     ) {
@@ -74,7 +74,7 @@ struct IconAndTitleItem_Previews: PreviewProvider {
                             .padding(.vertical, 8)
 
                         }
-                        .listRowBackground(DDSColor.cellBackground.swiftUIColor)
+                        .listRowBackground(Color.dds.cellBackground)
 
                         NavigationLink(destination: Text("World")) {
                             IconAndTitleItem(title: "Title") {
@@ -84,7 +84,7 @@ struct IconAndTitleItem_Previews: PreviewProvider {
                             }
                             .padding(.vertical, 8)
                         }
-                        .listRowBackground(DDSColor.cellBackground.swiftUIColor)
+                        .listRowBackground(Color.dds.cellBackground)
                     }
                     .textCase(nil)
                 }
@@ -100,7 +100,7 @@ struct IconAndTitleItem_Previews: PreviewProvider {
             NavigationView {
                 List {
                     Section(header: Text("Section Header")
-                                .foregroundColor(DDSColor.primaryText.swiftUIColor)
+                                .foregroundColor(Color.dds.primaryText)
                                 .preferredFont(for: .title, weight: .heavy)
                                 .padding(.bottom, 4.0)
                     ) {
@@ -112,7 +112,7 @@ struct IconAndTitleItem_Previews: PreviewProvider {
                             .padding(.vertical, 8)
 
                         }
-                        .listRowBackground(DDSColor.cellBackground.swiftUIColor)
+                        .listRowBackground(Color.dds.cellBackground)
 
                         NavigationLink(destination: Text("World")) {
                             IconAndTitleItem(title: "Title") {
@@ -122,7 +122,7 @@ struct IconAndTitleItem_Previews: PreviewProvider {
                             }
                             .padding(.vertical, 8)
                         }
-                        .listRowBackground(DDSColor.cellBackground.swiftUIColor)
+                        .listRowBackground(Color.dds.cellBackground)
                     }
                     .textCase(nil)
                 }

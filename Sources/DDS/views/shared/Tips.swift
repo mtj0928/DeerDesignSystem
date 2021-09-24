@@ -101,26 +101,26 @@ struct Tips_Preview: PreviewProvider {
                             title: "Title",
                             body: "This is a body of the view.\nこれはViewの本文です",
                             closeAction: {}
-                        ).foregroundColor(DDSColor.deerBlue.swiftUIColor)
+                        ).foregroundColor(Color.dds.deerBlue)
 
                         Tips(title: {
                             Text("Hoge")
                                 .preferredFont(for: .body, weight: .heavy)
-                                .foregroundColor(DDSColor.primaryText.swiftUIColor)
+                                .foregroundColor(Color.dds.primaryText)
                         }, label: {
                             HStack {
-                                Circle().foregroundColor(DDSColor.deerGreen.swiftUIColor)
+                                Circle().foregroundColor(Color.dds.deerGreen)
                                     .frame(width: 10, height: 10)
                                 Text("Custom")
                                     .preferredFont(for: .footnote, weight: .medium)
-                                    .foregroundColor(DDSColor.deerRed.swiftUIColor)
+                                    .foregroundColor(Color.dds.deerRed)
                                 Spacer()
                             }
-                        }).foregroundColor(DDSColor.secondaryBackground.swiftUIColor)
+                        }).foregroundColor(Color.dds.secondaryBackground)
                         Tips(
                             title: "Error",
                             body: "Failed to send a message"
-                        ).foregroundColor(DDSColor.deerRed.swiftUIColor)
+                        ).foregroundColor(Color.dds.deerRed)
                         Spacer()
                     }
                     .padding()
@@ -133,17 +133,17 @@ struct Tips_Preview: PreviewProvider {
                 Tips(
                     title: "Title",
                     body: "This is a body of the view.\nこれはViewの本文です"
-                ).foregroundColor(DDSColor.deerBlue.swiftUIColor)
+                ).foregroundColor(Color.dds.deerBlue)
 
                 Tips(
                     title: "Title",
                     body: "This is a body of the view.\nこれはViewの本文です"
-                ).foregroundColor(DDSColor.secondaryBackground.swiftUIColor)
+                ).foregroundColor(Color.dds.secondaryBackground)
 
                 Tips(
                     title: "Error",
                     body: "Failed to send a message"
-                ).foregroundColor(DDSColor.deerRed.swiftUIColor)
+                ).foregroundColor(Color.dds.deerRed)
             }
             .padding()
             .preferredColorScheme(.dark)

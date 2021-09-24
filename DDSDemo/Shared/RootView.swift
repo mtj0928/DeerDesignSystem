@@ -96,8 +96,8 @@ struct RootView: View {
             .sheet(isPresented: $isPresentingSheet) {
                 Alignment {
                     (Text(text ?? "") + Text("がタップされました"))
-                        .foregroundColor(DDSColor.primaryText.swiftUIColor)
-                }.background(DDSColor.primaryBackground.swiftUIColor)
+                        .foregroundColor(Color.dds.primaryText)
+                }.background(Color.dds.primaryBackground)
             }
             #else
             view

@@ -48,21 +48,21 @@ struct StandardInAppNotification: View {
                 if let title = request.title {
                     Text(title)
                         .preferredFont(for: .callout, weight: .bold)
-                        .foregroundColor(DDSColor.primaryText.swiftUIColor)
+                        .foregroundColor(Color.dds.primaryText)
                 }
 
                 if let body = request.body {
                     Text(body)
                         .preferredFont(for: .footnote, weight: .regular)
                         .lineSpacing(0)
-                        .foregroundColor(DDSColor.primaryText.swiftUIColor)
+                        .foregroundColor(Color.dds.primaryText)
                         .lineLimit(2)
                 }
             }
             Spacer(minLength: 0)
         }
         .padding(13)
-        .background(DDSColor.notificationBackground.swiftUIColor)
+        .background(Color.dds.notificationBackground)
     }
 }
 
@@ -71,7 +71,8 @@ struct InAppNotification_Preview: PreviewProvider {
     static var previews: some View {
         Group {
             ZStack {
-                DDSColor.primaryBackground.swiftUIColor
+                Color.dds
+                    .primaryBackground
                     .ignoresSafeArea()
                 VStack {
                     StandardInAppNotification(
@@ -133,7 +134,8 @@ struct InAppNotification_Preview: PreviewProvider {
             }
 
             ZStack {
-                DDSColor.primaryBackground.swiftUIColor
+                Color.dds
+                    .primaryBackground
                     .ignoresSafeArea()
                 VStack {
                     StandardInAppNotification(

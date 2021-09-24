@@ -39,7 +39,7 @@ struct SampleSection: ListViewSection {
                 label: {
                     HStack {
                         (Text("\(number): ") + Text(item ?? ""))
-                            .foregroundColor(DDSColor.primaryText.swiftUIColor)
+                            .foregroundColor(Color.dds.primaryText)
                             .preferredFont(for: .title, weight: .heavy)
                         Spacer()
                     }
@@ -97,7 +97,7 @@ class SampleCell: UICollectionViewListCell, ListViewCell, HostingController {
                     .foregroundColor(.accentColor.opacity(0.2))
             }
             .padding()
-            .foregroundColor(DDSColor.primaryText.swiftUIColor)
+            .foregroundColor(Color.dds.primaryText)
         }
     }
 
@@ -137,7 +137,7 @@ struct SampleListView: View {
             .ignoresSafeArea()
         }
         .navigationBarTitleDisplayMode(.inline)
-        .accentColor(DDSColor.deerGreen.swiftUIColor)
-        .background(DDSColor.primaryBackground.swiftUIColor)
+        .accentColor(Color.dds.deerGreen)
+        .background(Color.dds.primaryBackground)
     }
 }

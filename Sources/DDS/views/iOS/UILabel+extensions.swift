@@ -1,4 +1,5 @@
 #if os(iOS)
+import SwiftUI
 import UIKit
 
 extension UILabel {
@@ -8,7 +9,7 @@ extension UILabel {
             let label = UILabel()
             label.font = UIFont.preferredFont(for: textStyle, weight: weight)
             label.adjustsFontForContentSizeCategory = true
-            label.textColor = DDSColor.primaryText.color
+            label.textColor = UIColor(Color.dds.primaryText)
             return label
         }
     }

@@ -1,8 +1,0 @@
-xcassets:
-  - inputs: Sources/DDS/resources/DDSColor.xcassets
-    outputs:
-      templateName: swift5
-      output: Sources/DDS/generated/DDSColor.swift
-      params:
-        publicAccess: public
-        enumName: DDSColor

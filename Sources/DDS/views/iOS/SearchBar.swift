@@ -19,7 +19,7 @@ public struct SearchBar: View {
             Image(systemSymbol: .magnifyingglass)
                 .resizable()
                 .scaledToFit()
-                .foregroundColor(DDSColor.secondaryText.swiftUIColor)
+                .foregroundColor(Color.dds.secondaryText)
                 .padding(.vertical, 10)
             TextField("",
                 text: $input,
@@ -28,15 +28,15 @@ public struct SearchBar: View {
             )
             .placeholder(when: input.isEmpty) {
                 placeHolder
-                    .foregroundColor(DDSColor.secondaryText.swiftUIColor)
+                    .foregroundColor(Color.dds.secondaryText)
             }
             .textFieldStyle(PlainTextFieldStyle())
-            .foregroundColor(DDSColor.primaryText.swiftUIColor)
+            .foregroundColor(Color.dds.primaryText)
             Spacer()
         }
         .padding(.horizontal, 12)
         .background(
-            Capsule() .foregroundColor(DDSColor.secondaryBackground.swiftUIColor)
+            Capsule() .foregroundColor(Color.dds.secondaryBackground)
         )
         .frame(height: 40)
         .padding()
@@ -47,7 +47,7 @@ struct SearchBar_Preview: PreviewProvider {
 
     static var previews: some View {
         ZStack {
-//            DDSColor.primaryBackground.swiftUIColor
+//            Color.dds.primaryBackground
 //                .ignoresSafeArea()
             VStack {
                 BindingView(initialValue: "") { binding in
@@ -62,7 +62,7 @@ struct SearchBar_Preview: PreviewProvider {
         }
 
         ZStack {
-//            DDSColor.primaryBackground.swiftUIColor
+//            Color.dds.primaryBackground
 //                .ignoresSafeArea()
             VStack {
                 BindingView(initialValue: "Hoge") { binding in

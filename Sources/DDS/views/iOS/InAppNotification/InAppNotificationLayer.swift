@@ -87,7 +87,7 @@ struct InAppNotificationLayer_Preview: PreviewProvider {
                             let request = StandardInAppNotificationRequest(
                                 identifier: "xxx",
                                 icon: ZStack {
-                                    Circle().foregroundColor(DDSColor.deerGreen.swiftUIColor)
+                                    Circle().foregroundColor(Color.dds.deerGreen)
                                         .layoutPriority(1)
                                     Alignment {
                                         Image(systemSymbol: .bellBadgeFill)

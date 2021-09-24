@@ -7,10 +7,10 @@ You can easily access colors defined in DDS.
 
 ```swift
 // UIColor or NSColor
-DDSColor.primaryTextColor.color
+Color.dds.primaryTextColor.color
     
 // SwiftUI.Color
-DDSColor.primaryTextColor.swiftUIColor
+Color.dds.primaryTextColor
 ```
 
 ## Text 
@@ -35,20 +35,20 @@ You can use the view for showing tips about your app.
 Tips(title: "Title",body: "This is a body of the view.") {
     print("Closesd")
 }
-    .foregroundColor(DDSColor.deerBlue.swiftUIColor)
+    .foregroundColor(Color.dds.deerBlue)
     
 // Custom
 Tips(title: {
     Text("Hoge")
         .preferredFont(for: .body, weight: .heavy)
-        .foregroundColor(DDSColor.primaryText.swiftUIColor)
+        .foregroundColor(Color.dds.primaryText)
     }, label: {
         HStack {
-            Circle().foregroundColor(DDSColor.deerGreen.swiftUIColor)
+            Circle().foregroundColor(Color.dds.deerGreen)
                 .frame(width: 10, height: 10)
             Text("Custom")
                 .preferredFont(for: .footnote, weight: .medium)
-                .foregroundColor(DDSColor.deerRed.swiftUIColor)
+                .foregroundColor(Color.dds.deerRed)
             Spacer()
         }
     }, tappedAction: {
@@ -56,7 +56,7 @@ Tips(title: {
     }, closeAction: {
         print("tapped close button")
     })
-    .foregroundColor(DDSColor.secondaryBackground.swiftUIColor)
+    .foregroundColor(Color.dds.secondaryBackground)
 ```
 
 <img width="320px" alt="Tips image" src="Resources/tips.png">

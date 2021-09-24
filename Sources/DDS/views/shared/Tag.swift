@@ -23,7 +23,7 @@ public struct Tag<BackgrounShape: Shape>: View {
                 .preferredFont(for: .footnote, weight: .medium)
                 .padding(.horizontal)
                 .padding(.vertical, 8.0)
-                .foregroundColor(DDSColor.tagText.swiftUIColor)
+                .foregroundColor(Color.dds.tagText)
                 .background(backgroundShape)
         }
         .apply { view in
@@ -41,25 +41,25 @@ struct Tag_Previews: PreviewProvider {
         ScrollView {
             HStack {
                 VStack(spacing: 16.0) {
-                    Tag(title: Text("Hoge").foregroundColor(DDSColor.tagText.swiftUIColor)) {
+                    Tag(title: Text("Hoge").foregroundColor(Color.dds.tagText)) {
                     }
                     .foregroundColor(.blue)
 
                     Tag(
                         title: Text("XXXXXXXXXXXXXXXXXXXX")
-                            .foregroundColor(DDSColor.deerBlue.swiftUIColor),
+                            .foregroundColor(Color.dds.deerBlue),
                         action: {}
                     )
-                        .foregroundColor(DDSColor.deerBlue.swiftUIColor.opacity(0.15))
+                        .foregroundColor(Color.dds.deerBlue.opacity(0.15))
 
                     Tag(
                         title: Text(Image(systemSymbol: .plus))
-                            .foregroundColor(DDSColor.tagText.swiftUIColor)
+                            .foregroundColor(Color.dds.tagText)
                             .preferredFont(for: .headline, weight: .heavy),
                         shape: Circle(),
                         action: {}
                     )
-                        .foregroundColor(DDSColor.secondaryBackground.swiftUIColor)
+                        .foregroundColor(Color.dds.secondaryBackground)
                 }
             }
         }

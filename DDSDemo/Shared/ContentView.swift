@@ -12,7 +12,7 @@ struct TextAndButtonView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(DDSColor.primaryBackground.swiftUIColor)
+                .foregroundColor(Color.dds.primaryBackground)
                 .ignoresSafeArea()
             ScrollView {
                 HStack {
@@ -21,12 +21,12 @@ struct TextAndButtonView: View {
                             .dds
                             .body
                         Text("Secondary Text Color: Deer / まつじ / 松本")
-                            .foregroundColor(DDSColor.secondaryText.swiftUIColor)
+                            .foregroundColor(Color.dds.secondaryText)
                             .dds
                             .body
                         ZStack {
                             RoundedRectangle(cornerRadius: 10.0)
-                                .foregroundColor(DDSColor.secondaryBackground.swiftUIColor)
+                                .foregroundColor(Color.dds.secondaryBackground)
                                 .frame(height: 76)
                             HStack {
                                 VStack(alignment: .leading, spacing: 11) {
@@ -34,7 +34,7 @@ struct TextAndButtonView: View {
                                         .dds
                                         .body
                                     Text("Secondary Background (secondary)")
-                                        .foregroundColor(DDSColor.secondaryText.swiftUIColor)
+                                        .foregroundColor(Color.dds.secondaryText)
                                         .dds
                                         .body
 
