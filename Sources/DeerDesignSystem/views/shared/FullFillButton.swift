@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct BottomFullFillButton<Label: View>: View {
+public struct FullFillButton<Label: View>: View {
 
     let action: () -> ()
     let label: () -> Label
@@ -37,7 +37,7 @@ public struct BottomFullFillButton<Label: View>: View {
     }
 }
 
-extension BottomFullFillButton where Label == Text {
+extension FullFillButton where Label == Text {
     public init(text: String, action: @escaping () -> ()) {
         self.init(
             action: action,
@@ -45,24 +45,25 @@ extension BottomFullFillButton where Label == Text {
                 Text(text)
                     .preferredFont(for: .headline, weight: .semibold)
                     .foregroundColor(.white)
-            })
+            }
+        )
     }
 }
 
-struct BottomFullFillButton_Previews: PreviewProvider {
+struct FullFillButton_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { proxy in
             ScrollView {
                 VStack {
                     Spacer()
-                    BottomFullFillButton(action: {}) {
+                    FullFillButton(action: {}) {
                         Circle()
                             .foregroundColor(.green)
                             .frame(width: 70, height: 70)
                     }
-                    BottomFullFillButton(text: "XXX\nYYY\nZZZ") {}
+                    FullFillButton(text: "XXX\nYYY\nZZZ") {}
                         .foregroundColor(.red)
-                    BottomFullFillButton(text: "Button") {}
+                    FullFillButton(text: "Button") {}
                         .foregroundColor(.blue)
                 }
                 .padding(.horizontal)
