@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1810C77926FE368900875D2E /* DeerDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 1810C77826FE368900875D2E /* DeerDesignSystem */; };
 		1838D58326C6BE2A0083D645 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18483E0B26C5F0B7002E3E1F /* RootView.swift */; };
 		1838D58526C6C4350083D645 /* ColorPalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1838D58426C6C4350083D645 /* ColorPalletView.swift */; };
 		1838D58626C6C4350083D645 /* ColorPalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1838D58426C6C4350083D645 /* ColorPalletView.swift */; };
 		18483E0D26C5F0B7002E3E1F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18483E0B26C5F0B7002E3E1F /* RootView.swift */; };
-		18483E1026C5F71F002E3E1F /* DDS in Frameworks */ = {isa = PBXBuildFile; productRef = 18483E0F26C5F71F002E3E1F /* DDS */; };
-		18483E1226C5F747002E3E1F /* DDS in Frameworks */ = {isa = PBXBuildFile; productRef = 18483E1126C5F747002E3E1F /* DDS */; };
 		18980D8726C5740300FFE545 /* DDSDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18980D7426C5740200FFE545 /* DDSDemoApp.swift */; };
 		18980D8826C5740300FFE545 /* DDSDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18980D7426C5740200FFE545 /* DDSDemoApp.swift */; };
 		18980D8926C5740300FFE545 /* TextAndButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18980D7526C5740200FFE545 /* TextAndButtonView.swift */; };
@@ -55,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18483E1026C5F71F002E3E1F /* DDS in Frameworks */,
+				1810C77926FE368900875D2E /* DeerDesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18483E1226C5F747002E3E1F /* DDS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +143,7 @@
 			);
 			name = "DDSDemo (iOS)";
 			packageProductDependencies = (
-				18483E0F26C5F71F002E3E1F /* DDS */,
+				1810C77826FE368900875D2E /* DeerDesignSystem */,
 			);
 			productName = "DDSDemo (iOS)";
 			productReference = 18980D7B26C5740300FFE545 /* DDSDemo.app */;
@@ -166,7 +164,6 @@
 			);
 			name = "DDSDemo (macOS)";
 			packageProductDependencies = (
-				18483E1126C5F747002E3E1F /* DDS */,
 			);
 			productName = "DDSDemo (macOS)";
 			productReference = 18980D8326C5740300FFE545 /* DDSDemo.app */;
@@ -199,7 +196,7 @@
 			);
 			mainGroup = 18980D6E26C5740200FFE545;
 			packageReferences = (
-				18483E0E26C5F71F002E3E1F /* XCRemoteSwiftPackageReference "." */,
+				1810C77726FE368900875D2E /* XCRemoteSwiftPackageReference "DeerDesignSystem" */,
 			);
 			productRefGroup = 18980D7C26C5740300FFE545 /* Products */;
 			projectDirPath = "";
@@ -509,9 +506,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		18483E0E26C5F71F002E3E1F /* XCRemoteSwiftPackageReference "." */ = {
+		1810C77726FE368900875D2E /* XCRemoteSwiftPackageReference "DeerDesignSystem" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = ../;
+			repositoryURL = "https://github.com/mtj0928/DeerDesignSystem";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -520,15 +517,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		18483E0F26C5F71F002E3E1F /* DDS */ = {
+		1810C77826FE368900875D2E /* DeerDesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 18483E0E26C5F71F002E3E1F /* XCRemoteSwiftPackageReference "." */;
-			productName = DDS;
-		};
-		18483E1126C5F747002E3E1F /* DDS */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 18483E0E26C5F71F002E3E1F /* XCRemoteSwiftPackageReference "." */;
-			productName = DDS;
+			package = 1810C77726FE368900875D2E /* XCRemoteSwiftPackageReference "DeerDesignSystem" */;
+			productName = DeerDesignSystem;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

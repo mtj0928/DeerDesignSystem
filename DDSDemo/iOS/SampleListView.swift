@@ -1,6 +1,6 @@
 import SwiftUI
 import UIKit
-import DDS
+import DeerDesignSystem
 
 @available(iOS 14.0, *)
 struct SampleSection: ListViewSection {

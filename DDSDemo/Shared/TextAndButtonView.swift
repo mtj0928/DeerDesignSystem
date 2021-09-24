@@ -1,5 +1,5 @@
 import SwiftUI
-import DDS
+import DeerDesignSystem
 
 struct TextAndButtonView: View {
 
@@ -88,12 +88,12 @@ struct TextAndButtonView: View {
 
                         Spacer()
 
-                        BottomFullFillButton(text: "Disabled Button") { showAlert = true }
+                        FullFillButton(text: "Disabled Button") { showAlert = true }
                         .foregroundColor(Color.dds.deerBlue)
                         .padding(.horizontal)
                         .disabled(true)
 
-                        BottomFullFillButton(text: "Button") { showAlert = true }
+                        FullFillButton(text: "Button") { showAlert = true }
                         .foregroundColor(Color.dds.deerBlue)
                         .padding(.horizontal)
                         .padding(.bottom, 8)

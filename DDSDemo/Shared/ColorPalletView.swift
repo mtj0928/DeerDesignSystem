@@ -1,5 +1,5 @@
 import SwiftUI
-import DDS
+import DeerDesignSystem
 
 struct ColorPalletView: View {
 
@@ -7,7 +7,7 @@ struct ColorPalletView: View {
         Color.dds.deerBlue,
         Color.dds.deerGreen,
         Color.dds.deerRed
-    ].map(\)
+    ]
 
     var body: some View {
         ZStack {

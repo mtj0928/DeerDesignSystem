@@ -1,5 +1,5 @@
 import SwiftUI
-import DDS
+import DeerDesignSystem
 
 struct RootView: View {
 

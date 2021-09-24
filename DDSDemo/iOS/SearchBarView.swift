@@ -1,5 +1,5 @@
 import SwiftUI
-import DDS
+import DeerDesignSystem
 
 struct SearchBarView: View {
     @Environment(\.inAppNotificationQueue) var queue
@@ -33,7 +33,7 @@ struct SearchBarView: View {
                             ))
                         }
                         Spacer()
-                        BottomFullFillButton(text: "Show modal view") {
+                        FullFillButton(text: "Show modal view") {
                             isPrese = true
                         }
                         .padding(.horizontal)
