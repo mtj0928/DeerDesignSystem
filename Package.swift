@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "DDS",
+    name: "DeerDesignSystem",
     platforms: [
         .macOS(.v11),
         .iOS(.v14),
@@ -12,8 +12,8 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "DDS",
-            targets: ["DDS"]
+            name: "DeerDesignSystem",
+            targets: ["DeerDesignSystem"]
         ),
     ],
     dependencies: [
@@ -21,10 +21,10 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "DDS",
+            name: "DeerDesignSystem",
             dependencies: ["SFSafeSymbols"]),
         .testTarget(
             name: "DDSTests",
-            dependencies: ["DDS"]),
+            dependencies: ["DeerDesignSystem"]),
     ]
 )
