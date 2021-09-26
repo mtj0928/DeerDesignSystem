@@ -3,10 +3,10 @@
     "pins": [
       {
         "package": "DeerDesignSystem",
-        "repositoryURL": "https://github.com/mtj0928/DeerDesignSystem",
+        "repositoryURL": "/Users/matsuji/Documents/programming/swift/library/DDS",
         "state": {
-          "branch": "main",
-          "revision": "bad08abfb9e3e33fb907b998df3c5b7d07adb6b6",
+          "branch": "popup",
+          "revision": "91764d304827918f9cedef69ea4b48995c4ed712",
           "version": null
         }
       },

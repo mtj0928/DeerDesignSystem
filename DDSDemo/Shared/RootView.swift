@@ -21,6 +21,10 @@ struct RootView: View {
         return cetner
     }
 
+    var popupCenter: PopupCenter? {
+        Self.windowScene.flatMap(PopupCenter.resolve(for:))
+    }
+
     @State var text: String?
     @State var isPresentingSheet = false
     #endif
@@ -62,6 +66,10 @@ struct RootView: View {
                             destination: SearchBarView(),
                             label: { Cell(text: "SearchBar") }
                         )
+                        NavigationLink(
+                            destination: PopupView(),
+                            label: { Cell(text: "Popup") }
+                        )
                     }
                 }
             }
@@ -88,9 +96,11 @@ struct RootView: View {
                 .apply { view in
                     if let notificationCenter = inAppNotificationCenter {
                         view.environment(\.inAppNotificationQueue, notificationCenter.queue)
+                            .environment(\.popupCenter, popupCenter)
                     } else {
                         view
                     }
+
                 }
             }
             .sheet(isPresented: $isPresentingSheet) {
