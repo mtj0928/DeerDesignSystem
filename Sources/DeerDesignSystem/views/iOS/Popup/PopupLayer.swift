@@ -1,3 +1,4 @@
+#if os(iOS)
 import SwiftUI
 
 struct PopupLayer: View {
@@ -15,3 +16,4 @@ struct PopupLayer: View {
         }
     }
 }
+#endif

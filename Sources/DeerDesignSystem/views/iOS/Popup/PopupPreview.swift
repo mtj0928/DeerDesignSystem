@@ -1,3 +1,4 @@
+#if os(iOS)
 import SwiftUI
 
 public struct PopupPreview<Content: View>: View {
@@ -50,3 +51,4 @@ struct PopupPreview_Previews: PreviewProvider {
         }
     }
 }
+#endif
