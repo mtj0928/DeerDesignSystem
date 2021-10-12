@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1810C77926FE368900875D2E /* DeerDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 1810C77826FE368900875D2E /* DeerDesignSystem */; };
 		181BF7A02700616C00039266 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BF79F2700616C00039266 /* PopupView.swift */; };
 		1838D58326C6BE2A0083D645 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18483E0B26C5F0B7002E3E1F /* RootView.swift */; };
 		1838D58526C6C4350083D645 /* ColorPalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1838D58426C6C4350083D645 /* ColorPalletView.swift */; };
 		1838D58626C6C4350083D645 /* ColorPalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1838D58426C6C4350083D645 /* ColorPalletView.swift */; };
 		18483E0D26C5F0B7002E3E1F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18483E0B26C5F0B7002E3E1F /* RootView.swift */; };
+		1851FBCD2715161800FC11C3 /* DeerDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 1851FBCC2715161800FC11C3 /* DeerDesignSystem */; };
+		1851FBCF2715161E00FC11C3 /* DeerDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 1851FBCE2715161E00FC11C3 /* DeerDesignSystem */; };
 		18980D8726C5740300FFE545 /* DDSDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18980D7426C5740200FFE545 /* DDSDemoApp.swift */; };
 		18980D8826C5740300FFE545 /* DDSDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18980D7426C5740200FFE545 /* DDSDemoApp.swift */; };
 		18980D8926C5740300FFE545 /* TextAndButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18980D7526C5740200FFE545 /* TextAndButtonView.swift */; };
@@ -22,7 +23,6 @@
 		18980D9C26C5804200FFE545 /* TextAndButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18980D7526C5740200FFE545 /* TextAndButtonView.swift */; };
 		18E07E1E26D2994900EF85B3 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E07E1D26D2994900EF85B3 /* SearchBarView.swift */; };
 		18F74CC626CC8E5D0084DEF0 /* SampleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F74CC526CC8E5D0084DEF0 /* SampleListView.swift */; };
-		18F74CC726CC8E5D0084DEF0 /* SampleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F74CC526CC8E5D0084DEF0 /* SampleListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1810C77926FE368900875D2E /* DeerDesignSystem in Frameworks */,
+				1851FBCD2715161800FC11C3 /* DeerDesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1851FBCF2715161E00FC11C3 /* DeerDesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,7 +147,7 @@
 			);
 			name = "DDSDemo (iOS)";
 			packageProductDependencies = (
-				1810C77826FE368900875D2E /* DeerDesignSystem */,
+				1851FBCC2715161800FC11C3 /* DeerDesignSystem */,
 			);
 			productName = "DDSDemo (iOS)";
 			productReference = 18980D7B26C5740300FFE545 /* DDSDemo.app */;
@@ -167,6 +168,7 @@
 			);
 			name = "DDSDemo (macOS)";
 			packageProductDependencies = (
+				1851FBCE2715161E00FC11C3 /* DeerDesignSystem */,
 			);
 			productName = "DDSDemo (macOS)";
 			productReference = 18980D8326C5740300FFE545 /* DDSDemo.app */;
@@ -199,7 +201,6 @@
 			);
 			mainGroup = 18980D6E26C5740200FFE545;
 			packageReferences = (
-				1810C77726FE368900875D2E /* XCRemoteSwiftPackageReference "." */,
 			);
 			productRefGroup = 18980D7C26C5740300FFE545 /* Products */;
 			projectDirPath = "";
@@ -254,7 +255,6 @@
 				18980D9C26C5804200FFE545 /* TextAndButtonView.swift in Sources */,
 				18980D8826C5740300FFE545 /* DDSDemoApp.swift in Sources */,
 				18483E0D26C5F0B7002E3E1F /* RootView.swift in Sources */,
-				18F74CC726CC8E5D0084DEF0 /* SampleListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,21 +509,13 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		1810C77726FE368900875D2E /* XCRemoteSwiftPackageReference "." */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = ../;
-			requirement = {
-				branch = popup;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		1810C77826FE368900875D2E /* DeerDesignSystem */ = {
+		1851FBCC2715161800FC11C3 /* DeerDesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1810C77726FE368900875D2E /* XCRemoteSwiftPackageReference "." */;
+			productName = DeerDesignSystem;
+		};
+		1851FBCE2715161E00FC11C3 /* DeerDesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
 			productName = DeerDesignSystem;
 		};
 /* End XCSwiftPackageProductDependency section */

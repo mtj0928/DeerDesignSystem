@@ -57,6 +57,7 @@ struct RootView: View {
                         destination: TextAndButtonView(),
                         label: { Cell(text: "Text and Button") }
                     )
+                    #if os(iOS)
                     if #available(iOS 14.0, *) {
                         NavigationLink(
                             destination: SampleListView(),
@@ -71,6 +72,7 @@ struct RootView: View {
                             label: { Cell(text: "Popup") }
                         )
                     }
+                    #endif
                 }
             }
             .navigationTitle("DDS Demo")
@@ -116,6 +118,7 @@ struct RootView: View {
     }
 }
 
+#if os(iOS)
 @available(iOS 14.0, *)
 extension RootView: InAppNotificationDelegte {
 
@@ -134,6 +137,7 @@ extension RootView: InAppNotificationDelegte {
             })
     }
 }
+#endif
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
